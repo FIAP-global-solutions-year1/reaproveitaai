@@ -3,15 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>ReaproveitaAi - Acesso</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <section id="logo-header">
+            <h1>ReaproveitaAi</h1>
+            <p>Reduza o desperdício. Ajude o planeta.</p>
+        </section>
+    </header>
     <main>
-        <div id="area-login">
-           minha linda tela de login
-
+        <div id="card-acesso">
+            <section id="seletor-login">
+                <button id="btn-entrar"><p class="selecionado">Entrar</p></button>
+                <button id="btn-cadastro"><p class="">Criar conta</p></button>
+            </section>
+            <div id="campos-login-e-cadastro">
+                <form action="produtos.html" target="_self" id="campo-login" class="card-alinhamento ">
+                    <p>E-mail</p>
+                    <input type="email" placeholder="seu@email.com" required>
+                    <p>Senha</p>
+                    <input type="password" placeholder="Sua senha" required>
+                    <br>
+                    <input type="submit" value="Entrar" id="btn-login-entrar">
+                </form>
+                <form action="produtos.html" target="_self" id="campo-cadastro" class="card-alinhamento desativado">
+                    <p>Tipo de cadastro</p>
+                    <div class="caixa-seletor">
+                        <button type="button" class="gatilho-seletor" id="btn-tipo-usuario">
+                            <p class="texto-seletor">Consumidor</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C675D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="setinha-customizada">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        
+                        <ul class="opcoes-seletor ativo">
+                            <li class="opcao-customizada" data-value="usuario1">Consumidor</li>
+                            <li class="opcao-customizada" data-value="usuario2">Lojista</li>
+                            <li class="opcao-customizada" data-value="usuario3">ONG</li>
+                        </ul>
+                    </div>
+                    <p>Nome completo</p>
+                    <input type="text" placeholder="Seu nome" required>
+                    <p>E-mail</p>
+                    <input type="email" placeholder="seu@email.com" required>
+                    <section id="section-cadastro-cpf" class="active">
+                        <p>CPF</p>
+                        <input type="number" placeholder="000.000.000-00" id="section-cadastro-cpf1" required>
+                    </section>
+                    <section id="section-cadastro-cnpj" class="desativado">
+                        <p>CNPJ</p>
+                        <input type="number" placeholder="00.000.000/0000-00" id="section-cadastro-cnpj1" required>
+                    </section>
+                    <p>Senha</p>
+                    <input type="password" placeholder="Crie uma senha" required>
+                    <br>
+                    <input type="submit" value="Criar conta" id="btn-cadastro-criar">
+                </form>
+            </div>
         </div>
     </main>
-    
+    <script src="/js/login.js"></script>
 </body>
 </html>
