@@ -228,19 +228,27 @@
             </p>
 
             <!-- Formulário visual, sem funcionamento real -->
-            <form class="formulario-contato">
+            <form id="formContato" class="formulario-contato">
 
                 <!-- Campo para nome -->
-                <input type="text" placeholder="Nome">
+                <input type="text" id="nome" placeholder="Nome" required>
 
                 <!-- Campo para email -->
-                <input type="email" placeholder="Email">
+                <input type="email" id="email" placeholder="Email" required>
+
+                <!-- Campo para assunto -->
+                <select id="assunto" required>
+                    <option value="" disabled selected>Escolha o assunto...</option>
+                    <option value="Dúvida">Dúvida</option>
+                    <option value="Relatar Problema de Reserva">Relatar Problema de Reserva</option>
+                    <option value="Suporte Técnico">Suporte Técnico</option>
+                </select>
 
                 <!-- Campo para mensagem -->
-                <textarea placeholder="Mensagem"></textarea>
+                <textarea id="mensagem" placeholder="Mensagem" required minlength="20"></textarea>
 
                 <!-- Botão de envio apenas visual -->
-                <button type="submit">
+                <button type="submit" id="btnEnviar">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M21.7 3.3c.2.2.3.5.2.8l-6.5 16.5c-.1.3-.4.5-.8.5s-.6-.2-.8-.5l-3.1-6.2-6.2-3.1c-.3-.2-.5-.5-.5-.8s.2-.6.5-.8L21 3.1c.3-.1.5 0 .7.2ZM6.8 10.5l4.8 2.4 2.4 4.8 5.2-13.1L6.8 10.5Z" />
