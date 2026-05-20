@@ -42,14 +42,16 @@ body::before {
     opacity: 0.55;
     background-image: radial-gradient(circle, #809662 1.4px, transparent 1.6px);
     background-size: 18px 18px;
-    mask-image: linear-gradient(to bottom, black, transparent);
 }
 
 /* Camada sutil de brilho para dar profundidade ao fundo */
 body::after {
     content: "";
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     pointer-events: none;
     background:
         radial-gradient(circle at 50% 23%, rgba(255, 255, 255, 0.85), transparent 28%),
@@ -88,7 +90,7 @@ body::after {
 /* Título principal */
 .card-contato h1 {
     margin-bottom: 14px;
-    font-size: clamp(36px, 5vw, 54px);
+    font-size: 52px;
     line-height: 1.05;
     font-weight: 700;
     letter-spacing: -1.8px;
@@ -112,6 +114,7 @@ body::after {
 
 /* Estilo compartilhado entre input e textarea */
 .formulario-contato input,
+.formulario-contato select,
 .formulario-contato textarea {
     width: 100%;
     border: 1px solid rgba(120, 145, 94, 0.28);
@@ -129,7 +132,8 @@ body::after {
 }
 
 /* Altura e espaçamento interno dos campos menores */
-.formulario-contato input {
+.formulario-contato input,
+.formulario-contato select {
     height: 54px;
     padding: 0 22px;
 }
@@ -143,12 +147,14 @@ body::after {
 
 /* Cor do texto que aparece dentro dos campos */
 .formulario-contato input::placeholder,
+.formulario-contato select::placeholder,
 .formulario-contato textarea::placeholder {
     color: rgba(120, 145, 94, 0.55);
 }
 
 /* Efeito visual quando o usuário clica em um campo */
 .formulario-contato input:focus,
+.formulario-contato select:focus,
 .formulario-contato textarea:focus {
     border-color: rgba(120, 145, 94, 0.7);
     background: rgba(255, 255, 255, 0.72);
@@ -201,6 +207,10 @@ body::after {
 
 /* Ajustes para telas menores, como celulares */
 @media (max-width: 640px) {
+    .card-contato h1 {
+        font-size: 38px;
+    }
+
     .pagina-contato {
         align-items: flex-start;
         padding-top: 90px;
@@ -218,7 +228,8 @@ body::after {
         margin-bottom: 30px;
     }
 
-    .formulario-contato input {
+    .formulario-contato input,
+    .formulario-contato select {
         height: 52px;
     }
 
