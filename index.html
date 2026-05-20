@@ -266,6 +266,13 @@
 
     </main>
 
+    <script>
+        document.getElementById('formContato').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert("Mensagem enviada com sucesso! Nossa equipa retornará em breve.");
+            this.reset();
+        });
+    </script>
 </body>
 
 </html>
