@@ -33,13 +33,14 @@ button, #btn-login-entrar, #btn-cadastro-criar {
 
 body {
     background-color: var(--cor-background);
+    margin-top: 10vh;
 }
 
 header {
-    padding: 20% 0 35px 0;
-    width: 100vw;
+    padding: 35px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 header h1 {
@@ -231,4 +232,18 @@ main {
 
 #campos-login-e-cadastro input:invalid:not(:placeholder-shown) {
     border-color: var(--cor-msg-erro);
+}
+
+footer {
+    position: fixed;
+    bottom: 0; 
+    width: 100%; 
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;     
+    background-color: var(--cor-background);
 }
