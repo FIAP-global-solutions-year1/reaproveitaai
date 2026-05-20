@@ -1,0 +1,228 @@
+/* Remove margens padrão e melhora o cálculo de tamanhos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de cor usadas no projeto */
+:root {
+    --verde-escuro: #2f3d2a;
+    --verde-medio: #78915e;
+    --verde-claro: #dce9c9;
+    --verde-suave: #eef6e3;
+    --branco-suave: #fbfdf7;
+    --texto-suave: #8fa27d;
+}
+
+/* Corpo da página com fundo claro e atmosfera suave */
+body {
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    color: var(--verde-escuro);
+    background:
+        radial-gradient(circle at 14% 24%, rgba(255, 255, 255, 0.95) 0 2px, transparent 3px),
+        radial-gradient(circle at 29% 54%, rgba(255, 255, 255, 0.85) 0 2px, transparent 3px),
+        radial-gradient(circle at 67% 43%, rgba(255, 255, 255, 0.85) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 62%, rgba(255, 255, 255, 0.9) 0 2px, transparent 3px),
+        radial-gradient(circle at 91% 35%, rgba(255, 255, 255, 0.8) 0 2px, transparent 3px),
+        linear-gradient(180deg, #fbfdf6 0%, var(--verde-suave) 100%);
+    overflow-x: hidden;
+}
+
+/* Camada de pontinhos no topo, parecida com a imagem de referência */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95px;
+    pointer-events: none;
+    opacity: 0.55;
+    background-image: radial-gradient(circle, #809662 1.4px, transparent 1.6px);
+    background-size: 18px 18px;
+    mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+/* Camada sutil de brilho para dar profundidade ao fundo */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 23%, rgba(255, 255, 255, 0.85), transparent 28%),
+        radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.35), transparent 38%);
+}
+
+/* Área principal que centraliza o conteúdo */
+.pagina-contato {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+}
+
+/* Bloco do conteúdo do formulário */
+.card-contato {
+    width: 100%;
+    max-width: 560px;
+    transform: translateY(-24px);
+}
+
+/* Texto pequeno acima do título */
+.etiqueta {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    color: var(--verde-medio);
+}
+
+/* Título principal */
+.card-contato h1 {
+    margin-bottom: 14px;
+    font-size: clamp(36px, 5vw, 54px);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -1.8px;
+    color: var(--verde-escuro);
+}
+
+/* Parágrafo de apoio abaixo do título */
+.descricao {
+    margin-bottom: 40px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--texto-suave);
+}
+
+/* Organização vertical dos campos */
+.formulario-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Estilo compartilhado entre input e textarea */
+.formulario-contato input,
+.formulario-contato textarea {
+    width: 100%;
+    border: 1px solid rgba(120, 145, 94, 0.28);
+    border-radius: 14px;
+    background: rgba(250, 253, 246, 0.55);
+    color: var(--verde-escuro);
+    font-family: "Roboto Mono", monospace;
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        0 10px 25px rgba(120, 145, 94, 0.05);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Altura e espaçamento interno dos campos menores */
+.formulario-contato input {
+    height: 54px;
+    padding: 0 22px;
+}
+
+/* Altura e espaçamento interno do campo de mensagem */
+.formulario-contato textarea {
+    height: 135px;
+    padding: 20px 22px;
+    resize: none;
+}
+
+/* Cor do texto que aparece dentro dos campos */
+.formulario-contato input::placeholder,
+.formulario-contato textarea::placeholder {
+    color: rgba(120, 145, 94, 0.55);
+}
+
+/* Efeito visual quando o usuário clica em um campo */
+.formulario-contato input:focus,
+.formulario-contato textarea:focus {
+    border-color: rgba(120, 145, 94, 0.7);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow:
+        0 0 0 4px rgba(120, 145, 94, 0.12),
+        0 14px 30px rgba(120, 145, 94, 0.08);
+}
+
+/* Botão principal da página */
+.formulario-contato button {
+    height: 56px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #809761 0%, #708855 100%);
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        0 16px 35px rgba(77, 98, 58, 0.18);
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Tamanho e cor do ícone do botão */
+.formulario-contato button svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Efeito visual ao passar o mouse no botão */
+.formulario-contato button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        0 20px 42px rgba(77, 98, 58, 0.22);
+}
+
+/* Efeito visual ao clicar no botão */
+.formulario-contato button:active {
+    transform: translateY(0);
+}
+
+/* Ajustes para telas menores, como celulares */
+@media (max-width: 640px) {
+    .pagina-contato {
+        align-items: flex-start;
+        padding-top: 90px;
+    }
+
+    .card-contato {
+        transform: none;
+    }
+
+    .etiqueta {
+        letter-spacing: 5px;
+    }
+
+    .descricao {
+        margin-bottom: 30px;
+    }
+
+    .formulario-contato input {
+        height: 52px;
+    }
+
+    .formulario-contato textarea {
+        height: 125px;
+    }
+}
