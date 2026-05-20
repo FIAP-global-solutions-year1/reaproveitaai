@@ -113,8 +113,9 @@
             gap: 18px;
         }
 
-        /* Estilo dos campos de nome, email e mensagem */
+        /* Estilo dos campos de nome, email, assunto e mensagem */
         input,
+        select,
         textarea {
             width: 100%;
             border: 1px solid var(--verde-borda);
@@ -126,10 +127,12 @@
             font-weight: 600;
             outline: none;
             box-shadow: 0 10px 25px rgba(120, 145, 94, 0.05);
+            appearance: none;
         }
 
         /* Tamanho dos campos menores */
-        input {
+        input,
+        select {
             height: 54px;
             padding: 0 22px;
         }
@@ -149,6 +152,7 @@
 
         /* Efeito quando o campo é selecionado */
         input:focus,
+        select:focus,
         textarea:focus {
             border-color: rgba(120, 145, 94, 0.7);
             background: rgba(255, 255, 255, 0.75);
