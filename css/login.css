@@ -8,8 +8,8 @@
     --cor-texto-secundaria: #5C675D;
     --tam-texto-pequeno: 16px;
     --tam-texto-grande: 30px;
-    --arredondamento-card: 10px;
-    --arredondamento-btn: 5px;
+    --arredondamento-card: 14px;
+    --arredondamento-btn: 14px;
     --weight-texto-pequeno: 400;
     --cor-msg-erro: #D32F2F;
 }
@@ -43,8 +43,8 @@ header {
     align-items: center;
 }
 
-header h1 {
-    font-size: var(--tam-texto-grande);
+header img {
+    width: 320px;
     margin-bottom: 5px;
     text-align: center;
 }
@@ -76,7 +76,7 @@ main {
 }
 
 #seletor-login {
-    background-color: var(--cor-background-secundario);
+    background-color: #4b8e4f;
     width: max-content;
     min-width: max-content;
     height: max-content;
@@ -86,13 +86,18 @@ main {
 }
 
 #seletor-login button p {
-    font-weight: var(--weight-texto-pequeno);
+    font-weight: 600;
     padding: 8px 0 8px 0;
     width: 210px;
     border-radius: var(--arredondamento-btn);
     background-color: transparent;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    color: var(--cor-texto-secundaria);
+    color: white;
+    transition: color 0.2s ease;
+}
+
+#seletor-login button p:hover {
+    color: rgb(196, 213, 204);
     transition: color 0.2s ease;
 }
 
@@ -101,11 +106,6 @@ main {
     background-color: var(--cor-cards) !important;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2) !important;
     color: var(--cor-texto-primaria) !important;
-}
-
-#seletor-login button p:hover {
-    color: var(--cor-texto-primaria);
-    transition: color 0.2s ease;
 }
 
 #campos-login-e-cadastro {
@@ -125,21 +125,24 @@ main {
     color: #6e7070;
     box-sizing: border-box;
     appearance: none;
-    border: none;
+    border: 1px solid rgba(95, 145, 94, 0.28);
     font-weight: var(--weight-texto-pequeno);
     font-size: var(--tam-texto-pequeno);
-    padding: 7px 15px 7px 15px;
+    height: 50px;
+    padding: 0 22px 0 22px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: var(--arredondamento-btn);
     margin-bottom: 10px;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 #campos-login-e-cadastro input:focus {
     outline: none;
-    /* border: 3px solid var(--cor-principal); */
-    border-color: var(--cor-principal);
+    border-color: rgba(70, 139, 68, 0.206);
+    background: rgba(255, 255, 255, 0.967);
+    box-shadow:
+        0 0 0 4px rgba(72, 135, 75, 0.302),
+        0 0 20px rgba(70, 130, 73, 0.21);
     transition: border-color 0.2s ease;
 }
 
@@ -159,7 +162,8 @@ main {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 7px 15px;
+    height: 50px;
+    padding: 0 22px 0 22px;
     background-color: var(--cor-cards);
     font-size: var(--tam-texto-pequeno);
     font-weight: var(--weight-texto-pequeno);
@@ -219,15 +223,16 @@ main {
 }
 
 #btn-cadastro-criar, #btn-login-entrar {
-    background-color: var(--cor-principal);
+    background-color: #4b8e4f;
     color: white !important;
-    font-weight: var(--weight-texto-pequeno) !important;
+    font-weight: 600 !important;
     transition: background-color 0.3s ease !important;
 }
 
 #btn-cadastro-criar:hover, #btn-login-entrar:hover {
-    background-color: var(--cor-secundaria);
-    transition: background-color 0.3s ease !important;
+    background-color: #3d7341;
+    transition: background-color 0.2s ease !important;
+    cursor: pointer;
 }
 
 #campos-login-e-cadastro input:invalid:not(:placeholder-shown) {
@@ -235,16 +240,19 @@ main {
 }
 
 footer {
-    background-color: #4b8e4f;
+    background-color: #4b8e4f !important;
     position: fixed;
     bottom: 0; 
     width: 100%; 
-    font-size: 14px;
-    font-weight: 400;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;     
-    background-color: var(--cor-background);
+    padding: 20px;     
+}
+
+footer p {
+    font-size: 14px;
+    font-weight: 400;
+    color: white !important;
 }
