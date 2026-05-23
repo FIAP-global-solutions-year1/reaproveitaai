@@ -30,6 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputCpf = document.getElementById('section-cadastro-cpf1');
     const inputCnpj = document.getElementById('section-cadastro-cnpj1');
 
+    inputCpf.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^0-9.-]/g, '');
+    });
+
+    inputCnpj.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^0-9.\-\/]/g, '');
+    });
+
     gatilhoSeletor.addEventListener('click', () => {
         opcoesSeletor.classList.toggle('ativo');
     });
