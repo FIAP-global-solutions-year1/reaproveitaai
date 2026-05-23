@@ -58,7 +58,7 @@
                     </section>
                     <section id="section-cadastro-cnpj" class="desativado">
                         <p>CNPJ</p>
-                        <input type="text" placeholder="00.000.000/0000-00" id="section-cadastro-cnpj1" minlength="14" maxlength="18">
+                        <input type="text" placeholder="00.000.000/0000-00" id="section-cadastro-cnpj1" minlength="18" maxlength="18" pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" title="O CNPJ deve estar no formato 00.000.000/0000-00">
                     </section>
                     <p>Senha</p>
                     <input type="password" placeholder="Crie uma senha" required>
