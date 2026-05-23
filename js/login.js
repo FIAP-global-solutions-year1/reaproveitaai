@@ -58,3 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+const campoCadastro = document.getElementById('campo-cadastro');
+campoCadastro.addEventListener('submit', function (event) {
+    event.preventDefault();
+    alert("Conta criada com sucesso! Bem-vindo ao ReaproveitaAi. Redirecionando para a área de produtos...");
+    window.location.href = "produtos.html";
+});
