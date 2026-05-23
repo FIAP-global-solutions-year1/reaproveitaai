@@ -16,6 +16,7 @@ branch pessoal:
 
 Exemplo: feature-pedro, feature-joao, feature-lucas -- ou: branch-ph, branch-arthur, branch-ronaldinho
 
+
 2. Fluxo de Trabalho Diário (Passo a Passo)
 SEMPRE, ao iniciar uma tarefa ou continuar desenvolvendo, SEGUIR ESTES PASSOS:
 
@@ -76,7 +77,6 @@ Para isso:
 // Se estiver tudo certo, clique no botão "Merge pull request".
 // Para finalizar, clique em "Confirm merge".
 
-(veja a legenda de comandos abaixo).
 
 3. Legenda e Guia Rápido de Comandos
 SIGNIFICADO E FUNÇÃO de cada comando que usamos no dia a dia:

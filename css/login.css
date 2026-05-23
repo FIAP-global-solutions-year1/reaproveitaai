@@ -235,10 +235,11 @@ main {
 }
 
 footer {
+    background-color: #4b8e4f;
     position: fixed;
     bottom: 0; 
     width: 100%; 
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     text-align: center;
     display: flex;
