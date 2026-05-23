@@ -31,7 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputCnpj = document.getElementById('section-cadastro-cnpj1');
 
     inputCpf.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+        let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+        if (value.length > 11) value = value.slice(0, 11);
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        e.target.value = value;
     });
 
     inputCnpj.addEventListener('input', (e) => {
