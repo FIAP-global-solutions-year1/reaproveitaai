@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputCnpj = document.getElementById('section-cadastro-cnpj1');
 
     inputCpf.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^0-9.-]/g, '');
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
     });
 
     inputCnpj.addEventListener('input', (e) => {
