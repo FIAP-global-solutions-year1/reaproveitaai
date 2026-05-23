@@ -10,201 +10,20 @@
     <!-- Título que aparece na aba do navegador -->
     <title>Contato</title>
 
-    <!-- Importa fontes externas para deixar o visual mais parecido com a referência -->
-    <link href="https://fonts.google.com/specimen/Inter" rel="stylesheet">
+    <!-- Importa fontes externas para deixar o visual mais agradável -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-    <style>
-        /* Remove espaçamentos padrão do navegador */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Define cores principais usadas no site */
-        :root {
-            --verde-escuro: #2f3d2a;
-            --verde-medio: #78915e;
-            --verde-claro: #eef6e3;
-            --verde-borda: #d7e6c4;
-            --texto-suave: #8fa27d;
-        }
-
-        /* Define o fundo geral da página */
-        body {
-            min-height: 100vh;
-            font-family: "Poppins", sans-serif;
-            color: var(--verde-escuro);
-            background:
-                radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.9) 0 2px, transparent 3px),
-                radial-gradient(circle at 30% 55%, rgba(255, 255, 255, 0.8) 0 2px, transparent 3px),
-                radial-gradient(circle at 68% 42%, rgba(255, 255, 255, 0.8) 0 2px, transparent 3px),
-                radial-gradient(circle at 80% 62%, rgba(255, 255, 255, 0.9) 0 2px, transparent 3px),
-                linear-gradient(180deg, #fbfdf7 0%, var(--verde-claro) 100%);
-            overflow-x: hidden;
-        }
-
-        /* Cria os pontinhos verdes no topo da tela */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 110px;
-            background-image: radial-gradient(circle, #819765 1.5px, transparent 1.8px);
-            background-size: 18px 18px;
-            opacity: 0.45;
-            pointer-events: none;
-            mask-image: linear-gradient(to bottom, black, transparent);
-        }
-
-        /* Área principal que centraliza o conteúdo na tela */
-        .pagina-contato {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 80px 24px;
-        }
-
-        /* Bloco central do formulário */
-        .card-contato {
-            width: 100%;
-            max-width: 560px;
-            transform: translateY(-25px);
-        }
-
-        /* Texto pequeno acima do título */
-        .etiqueta {
-            display: inline-block;
-            margin-bottom: 10px;
-            font-family: "Roboto Mono", monospace;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 8px;
-            color: var(--verde-medio);
-        }
-
-        /* Título principal */
-        h1 {
-            margin-bottom: 14px;
-            font-size: 52px;
-            line-height: 1.05;
-            font-weight: 700;
-            letter-spacing: -1.8px;
-            color: var(--verde-escuro);
-        }
-
-        /* Texto abaixo do título */
-        .descricao {
-            margin-bottom: 40px;
-            font-size: 15px;
-            color: var(--texto-suave);
-        }
-
-        /* Organiza os campos do formulário em coluna */
-        .formulario-contato {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        /* Estilo dos campos de nome, email e mensagem */
-        input,
-        textarea {
-            width: 100%;
-            border: 1px solid var(--verde-borda);
-            border-radius: 14px;
-            background: rgba(250, 253, 246, 0.6);
-            color: var(--verde-escuro);
-            font-family: "Roboto Mono", monospace;
-            font-size: 14px;
-            font-weight: 600;
-            outline: none;
-            box-shadow: 0 10px 25px rgba(120, 145, 94, 0.05);
-        }
-
-        /* Tamanho dos campos menores */
-        input {
-            height: 54px;
-            padding: 0 22px;
-        }
-
-        /* Tamanho do campo de mensagem */
-        textarea {
-            height: 135px;
-            padding: 20px 22px;
-            resize: none;
-        }
-
-        /* Cor do texto interno dos campos */
-        input::placeholder,
-        textarea::placeholder {
-            color: rgba(120, 145, 94, 0.55);
-        }
-
-        /* Efeito quando o campo é selecionado */
-        input:focus,
-        textarea:focus {
-            border-color: rgba(120, 145, 94, 0.7);
-            background: rgba(255, 255, 255, 0.75);
-            box-shadow: 0 0 0 4px rgba(120, 145, 94, 0.12);
-        }
-
-        /* Estilo do botão de envio */
-        button {
-            height: 56px;
-            border: none;
-            border-radius: 14px;
-            background: linear-gradient(180deg, #809761 0%, #708855 100%);
-            color: white;
-            font-family: "Poppins", sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 16px 35px rgba(77, 98, 58, 0.18);
-        }
-
-        /* Controla o tamanho do ícone do botão */
-        button svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
-
-        /* Efeito ao passar o mouse no botão */
-        button:hover {
-            filter: brightness(1.05);
-            transform: translateY(-2px);
-        }
-
-        /* Adaptação para telas menores */
-        @media (max-width: 640px) {
-            .pagina-contato {
-                align-items: flex-start;
-                padding-top: 90px;
-            }
-
-            .card-contato {
-                transform: none;
-            }
-
-            h1 {
-                font-size: 38px;
-            }
-
-            .etiqueta {
-                letter-spacing: 5px;
-            }
-        }
-    </style>
+    <!-- Conecta o HTML ao arquivo de estilos -->
+    <link rel="stylesheet" href="faleconosco.css">
 </head>
 <body>
+
+    <!-- Logo posicionada no canto superior esquerdo -->
+    <header class="cabecalho-site">
+        <img src="logo-reaproveita-ai.png" alt="Logo ReaproveitaAi" class="logo-site">
+    </header>
 
     <!-- Área principal da tela de contato -->
     <main class="pagina-contato">
@@ -220,7 +39,7 @@
 
             <!-- Texto de apoio -->
             <p class="descricao">
-                Tire suas duvidas aqui!!!
+                Tire suas dúvidas aqui!!!
             </p>
 
             <!-- Formulário visual, sem funcionamento real -->
@@ -248,6 +67,11 @@
         </section>
 
     </main>
+
+    <!-- Rodapé da página -->
+    <footer class="rodape-site">
+        © 2026 ReaproveitaAi
+    </footer>
 
 </body>
 </html>
