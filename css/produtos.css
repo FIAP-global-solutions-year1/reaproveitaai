@@ -4,6 +4,7 @@ começo  TOPO
 
 
 *{
+    font-family: "Inter", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,14 +16,13 @@ começo  TOPO
 
 
 body{
-    font-family: 'Poppins', sans-serif;
     background-color: rgb(255, 255, 255);
     color: #1a680c;
     overflow-x: hidden;
 }
 
 /* =========================
-TOPO reaproveitaAI
+TOPO ReaproveitaAi
 ========================= */
 
 .topo{
@@ -49,25 +49,8 @@ TOPO reaproveitaAI
 LOGO NOME
 ========================= */
 
-.logo{
-    width: 320px; /* área da logo */
-    height: 90px;
-
-    display: flex;
-    align-items: center;
-
-    background-color: #ffffff;
-}
-
-/* imagem da logo */
-
 .logo img{
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-
-    transform: scale(2.9); /* aumenta só a imagem */
+    width: 320px;
 }
 /* =========================
 MENU COM FILTROS
@@ -75,38 +58,40 @@ MENU COM FILTROS
 
 .menu{
     display: flex;
-    gap: 20px;
-
-    margin-left: -120px; /* joga mais pra esquerda */
+    gap: 15px;
+    margin-left: -120px;
 }
 
 .menu a{
     text-decoration: none;
     color: rgb(14, 136, 7);
-
-    font-weight: 600;
-    font-size: 22px;
+    background: rgb(218, 237, 221);
+    font-weight: 400;
+    font-size: 20px;
 
     padding: 12px 22px;
 
-    background: rgba(14, 150, 27, 0.12);
-
     border-radius: 14px;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
+    display: flex;
     transition: 0.3s;
 }
 
 .menu a:hover{
-    background: rgba(7, 184, 95, 0.22);
-
+    color: rgb(6, 56, 3);
+    background: rgb(194, 234, 200);
     transform: translateY(-3px);
-
-    opacity: 1;
 }
+
+#btn-faleconosco {
+    color: rgb(136, 127, 7);
+    background: rgba(255, 247, 175, 0.89);
+}
+
+#btn-faleconosco:hover {
+    color: rgb(62, 59, 4);
+    background: rgba(252, 241, 147, 0.89);
+}   
 
 /* =========================
 AÇÕES TOPO
@@ -121,29 +106,29 @@ AÇÕES TOPO
 BOTÕES TOPO
 ========================= */
 
-.botao-topo{
+.carrinho{
     border: none;
 
-    background: rgba(2, 136, 53, 0.15);
+    color: rgb(14, 136, 7);
+    background: rgb(218, 237, 221);
 
-    color: rgb(10, 146, 42);
-
-    padding: 30px 25px;
+    padding: 12px 22px;
 
     border-radius: 14px;
 
     cursor: pointer;
 
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 20px;
 
     transition: 0.3s;
 }
 
-.botao-topo:hover{
-    background: rgba(7, 220, 39, 0.25);
+.carrinho:hover{
+    color: rgb(6, 56, 3);
+    background: rgb(194, 234, 200);
     transform: translateY(-2px);
 }
-
 
 /* =========================
 BANNER DA LOJA
@@ -153,7 +138,7 @@ BANNER DA LOJA
     width: 100%;
     height:443px;
 
-    background-image: url("../img/SiteArthur.png");
+    background-image: url("../img/banner-produtos.png");
 
     background-size: cover;
     background-position: center;
@@ -336,16 +321,16 @@ BOTÕES CARD
 
 .botoes-card button:hover{
     transform: translateY(-3px);
-
     box-shadow:
     0 10px 20px rgba(46,125,50,0.25);
 }
 
 footer{
-    background-color: #2e7d32;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #4b8e4f;
     color: white;
     text-align: center;
     padding: 20px;
-    font-family: 'Poppins', sans-serif;
     margin-top: 40px;
 }
