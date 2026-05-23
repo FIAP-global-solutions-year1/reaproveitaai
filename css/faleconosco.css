@@ -57,7 +57,7 @@ body {
     max-width: 560px;
     height: auto;
     border-radius: 14px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 3px rgba(247, 196, 196, 0.2);
     transform: translateY(-24px);
 }
 
@@ -178,16 +178,23 @@ body {
 }
 
 .rodape-site {
+    background-color: #4b8e4f !important;
     position: fixed;
-    left: 0;
-    bottom: 18px;
-    z-index: 10;
+    bottom: 0;
     width: 100%;
     text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--verde-medio);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
+
+footer p {
+    font-size: 14px;
+    font-weight: 400;
+    color: white !important;
+}
+
 
 /* Ajustes para telas menores, como celulares */
 @media (max-width: 640px) {
