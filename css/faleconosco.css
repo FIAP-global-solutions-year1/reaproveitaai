@@ -23,6 +23,21 @@ body {
     color: black;
 }
 
+/* Cabeçalho com a logo no canto superior esquerdo */
+.cabecalho-site {
+    position: fixed;
+    top: 22px;
+    left: 28px;
+    z-index: 10;
+}
+
+/* Tamanho da logo */
+.logo-site {
+    display: block;
+    width: 210px;
+    height: auto;
+}
+
 /* Área principal que centraliza o conteúdo */
 .pagina-contato {
     position: relative;
@@ -57,17 +72,19 @@ body {
 /* Título principal */
 .card-contato h1 {
     margin-bottom: 14px;
-    font-size: 52px;
+    font-size: clamp(38px, 5vw, 52px);
     line-height: 1.05;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -1.8px;
-    color: black;
+    color: var(--verde-escuro);
 }
 
 /* Parágrafo de apoio abaixo do título */
 .descricao {
     margin-bottom: 40px;
     font-size: 15px;
+    line-height: 1.7;
+    color: var(--texto-suave);
 }
 
 /* Organização vertical dos campos */
@@ -158,6 +175,18 @@ body {
 /* Efeito visual ao clicar no botão */
 .formulario-contato button:active {
     transform: translateY(0);
+}
+
+.rodape-site {
+    position: fixed;
+    left: 0;
+    bottom: 18px;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--verde-medio);
 }
 
 /* Ajustes para telas menores, como celulares */
