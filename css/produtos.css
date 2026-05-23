@@ -28,7 +28,7 @@ TOPO reaproveitaAI
 .topo{
     width: 100%;
 
-    background: #16a034;
+    background: #ffffff;
 
     padding: 20px 45px;
 
@@ -49,30 +49,63 @@ TOPO reaproveitaAI
 LOGO NOME
 ========================= */
 
-.logo h1{
-    color: white;
-    font-size: 42px;
-    font-weight: 700;
+.logo{
+    width: 320px; /* área da logo */
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #ffffff;
 }
 
+/* imagem da logo */
+
+.logo img{
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transform: scale(2.9); /* aumenta só a imagem */
+}
 /* =========================
 MENU COM FILTROS
 ========================= */
 
 .menu{
     display: flex;
-    gap: 35px;
+    gap: 20px;
+
+    margin-left: -120px; /* joga mais pra esquerda */
 }
 
 .menu a{
     text-decoration: none;
-    color: white;
+    color: rgb(14, 136, 7);
+
     font-weight: 600;
+    font-size: 22px;
+
+    padding: 12px 22px;
+
+    background: rgba(14, 150, 27, 0.12);
+
+    border-radius: 14px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     transition: 0.3s;
 }
 
 .menu a:hover{
-    opacity: 0.7;
+    background: rgba(7, 184, 95, 0.22);
+
+    transform: translateY(-3px);
+
+    opacity: 1;
 }
 
 /* =========================
@@ -91,11 +124,11 @@ BOTÕES TOPO
 .botao-topo{
     border: none;
 
-    background: rgba(255,255,255,0.15);
+    background: rgba(2, 136, 53, 0.15);
 
-    color: white;
+    color: rgb(10, 146, 42);
 
-    padding: 12px 20px;
+    padding: 30px 25px;
 
     border-radius: 14px;
 
@@ -107,7 +140,7 @@ BOTÕES TOPO
 }
 
 .botao-topo:hover{
-    background: rgba(255,255,255,0.25);
+    background: rgba(7, 220, 39, 0.25);
     transform: translateY(-2px);
 }
 
@@ -120,7 +153,7 @@ BANNER DA LOJA
     width: 100%;
     height:443px;
 
-    background-image: url("../img/produtos-banner.png");
+    background-image: url("../img/SiteArthur.png");
 
     background-size: cover;
     background-position: center;
@@ -141,132 +174,14 @@ BANNER DA LOJA
 
 
 /* =========================
-FILTROS
-========================= */
-
-.filtros{
-    background: white;
-
-    margin: -35px 25px 35px 25px;
-
-    padding: 20px;
-
-    border-radius: 25px;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    flex-wrap: wrap;
-
-    position: relative;
-    z-index: 5;
-
-    box-shadow:
-    0 8px 30px rgba(0,0,0,0.06);
-}
-
-/* =========================
-TÍTULO FILTRO
-========================= */
-
-.titulo-filtro{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    font-weight: 700;
-    font-size: 22px;
-    color: #403e3e;
-}
-
-/* =========================
-BOTÕES FILTRO
-========================= */
-
-.filtros button{
-    border: none;
-
-    background: #ececec;
-
-    padding: 12px 22px;
-
-    border-radius: 30px;
-
-    cursor: pointer;
-
-    font-weight: 500;
-
-    transition: 0.3s;
-}
-
-.filtros button:hover{
-    background: #0a110a;
-    color: white;
-}
-
-/* =========================
-PESQUISA
-========================= */
-
-.pesquisa{
-    width: 90%;
-    max-width: 850px;
-
-    margin: 45px auto;
-
-    background: white;
-
-    border-radius: 22px;
-
-    overflow: hidden;
-
-    display: flex;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,0.08);
-}
-
-.pesquisa input{
-    flex: 1;
-
-    border: none;
-
-    padding: 24px;
-
-    font-size: 18px;
-
-    outline: none;
-}
-
-.pesquisa button{
-    width: 90px;
-
-    border: none;
-
-    background: #2e7d32;
-
-    color: white;
-
-    font-size: 22px;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.pesquisa button:hover{
-    background: #1b5e20;
-}
-
-/* =========================
 SEÇÕES
 ========================= */
 
 .secao{
-    margin: 50px 35px;
+    margin: 50px 135px 0 135px;
 
-    background: white;
+    background: rgb(130, 187, 141);
+
 
     padding: 40px;
 
@@ -281,7 +196,7 @@ TÍTULO
 ========================= */
 
 .secao h2{
-    color: #2e7d32;
+    color: #ffffff;
 
     margin-bottom: 35px;
 
@@ -353,46 +268,7 @@ IMAGENS
     transform: scale(1.08);
 }
 
-/* =========================
-ÍCONE
-========================= */
 
-.icones{
-    position: absolute;
-
-    top: 15px;
-    right: 15px;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-.icones i{
-    width: 38px;
-    height: 38px;
-
-    background: rgba(255,255,255,0.95);
-
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-
-    box-shadow:
-    0 5px 10px rgba(0,0,0,0.1);
-}
-
-.icones i:hover{
-    background: #2e7d32;
-    color: white;
-}
 
 /* =========================
 INFO CARD
@@ -465,52 +341,11 @@ BOTÕES CARD
     0 10px 20px rgba(46,125,50,0.25);
 }
 
-/* =========================
-CONTATO
-========================= */
-
-.contato{
-    background: #030303;
-
+footer{
+    background-color: #2e7d32;
     color: white;
-
     text-align: center;
-
-    padding: 20px 20px;
-
-    margin-top: 70px;
-}
-
-.contato h2{
-    font-size: 42px;
-    margin-bottom: 20px;
-}
-
-.contato p{
-    margin-bottom: 12px;
-    font-size: 18px;
-}
-
-.contato button{
-    margin-top: 20px;
-
-    border: none;
-
-    background: white;
-
-    color: #2e7d32;
-
-    padding: 16px 30px;
-
-    border-radius: 16px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.contato button:hover{
-    transform: translateY(-3px);
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 40px;
 }
