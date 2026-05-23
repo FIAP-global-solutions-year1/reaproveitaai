@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const itensOpcoes = document.querySelectorAll('.opcao-customizada');
     const sectionCpf = document.getElementById('section-cadastro-cpf');
     const sectionCnpj = document.getElementById('section-cadastro-cnpj');
+    const inputCpf = document.getElementById('section-cadastro-cpf1');
+    const inputCnpj = document.getElementById('section-cadastro-cnpj1');
 
     gatilhoSeletor.addEventListener('click', () => {
         opcoesSeletor.classList.toggle('ativo');
@@ -48,12 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 sectionCpf.classList.remove('desativado');
                 sectionCnpj.classList.remove('active');
                 sectionCnpj.classList.add('desativado');            
+                inputCpf.required = true;
+                inputCnpj.required = false;
             } 
             else { 
                 sectionCnpj.classList.add('active');
                 sectionCnpj.classList.remove('desativado');
                 sectionCpf.classList.remove('active');
                 sectionCpf.classList.add('desativado');
+                inputCnpj.required = true;
+                inputCpf.required = false;
             }
         });
     });
