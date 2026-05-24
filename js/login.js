@@ -60,29 +60,3 @@ opcaoOng.addEventListener('click', function() {
     inputCnpj.required = true;
     inputCpf.required = false;
 });
-
-// filtro para aceitar apenas números
-inputCpf.addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, ''); 
-    if (value.length > 11) value = value.slice(0, 11);
-    value = value.replace(/(\d{3})(\d)/, '$1.$2');
-    value = value.replace(/(\d{3})(\d)/, '$1.$2');
-    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-    e.target.value = value;
-});
-inputCnpj.addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length > 14) value = value.slice(0, 14);
-    value = value.replace(/^(\d{2})(\d)/, '$1.$2');
-    value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
-    value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
-    value = value.replace(/(\d{4})(\d{1,2})$/, '$1-$2');
-    e.target.value = value;
-});
-
-// evento de msg de sucesso no cadastro
-campoCadastro.addEventListener('submit', function (event) {
-    event.preventDefault();
-    alert("Conta criada com sucesso! Bem-vindo ao ReaproveitaAi. Redirecionando para a área de produtos...");
-    window.location.href = "produtos.html";
-});
