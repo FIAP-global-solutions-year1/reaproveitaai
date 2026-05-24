@@ -49,10 +49,19 @@ header img {
     text-align: center;
 }
 
-header p {
+header p, header a {
     font-weight: 300;
     font-size: var(--tam-texto-pequeno);
     text-align: center;
+}
+
+header a {
+    font-weight: 700;
+    color: rgb(38, 146, 89);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
