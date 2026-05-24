@@ -23,21 +23,6 @@ body {
     color: black;
 }
 
-/* Cabeçalho com a logo no canto superior esquerdo */
-/* .cabecalho-site {
-    position: fixed;
-    top: 22px;
-    left: 28px;
-    z-index: 10;
-} */
-
-/* Tamanho da logo */
-/* .logo-site {
-    display: block;
-    width: 210px;
-    height: auto;
-} */
-
 .barra-de-menu {
     width: 100%;
     height: 64px;
@@ -97,8 +82,6 @@ body {
 /* Área principal que centraliza o conteúdo */
 .pagina-contato {
     position: relative;
-    z-index: 1;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;

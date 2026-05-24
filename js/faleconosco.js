@@ -6,6 +6,6 @@ formContato.addEventListener('submit', function (event) {
     const assunto = document.getElementById('assunto').value;
     const mensagem = document.getElementById('mensagem').value;
 
-    alert(`Mensagem enviada com sucesso, ${nome}! Nossa equipe retornará em breve.`);
+    alert(`Mensagem enviada com sucesso, ${nome}! Nossa equipe retornará o contato em breve.`);
     formContato.reset();
 });
