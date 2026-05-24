@@ -24,25 +24,42 @@ body{
 /* =========================
 TOPO ReaproveitaAi
 ========================= */
-
-.topo{
+.barra-de-menu {
     width: 100%;
-
+    height: 64px;
     background: #ffffff;
+    padding: 10px 45px;
+    display: grid;
+    /* justify-content: space-between; */
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow:
+    0 0 15px rgba(0, 0, 0, 0.15);
+}
 
-    padding: 20px 45px;
-
+.barra-de-filtro {
+    width: 100%;
+    height: 64px;
+    background: #ffffff;
+    padding: 10px 45px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     position: sticky;
     top: 0;
-
-    z-index: 999;
-
+    z-index: 50;
     box-shadow:
-    0 5px 20px rgba(0,0,0,0.08);
+    0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.barra-de-filtro {
+    z-index: 1;
+    position: relative;
+    top: -60px;
+    pointer-events: auto;
 }
 
 /* =========================
@@ -50,34 +67,48 @@ LOGO NOME
 ========================= */
 
 .logo img{
-    width: 320px;
+    width: 220px;
+    position: absolute;
+    top: 25%;
 }
 /* =========================
 MENU COM FILTROS
 ========================= */
 
-.menu{
+.menu-principal {
     display: flex;
     gap: 15px;
-    margin-left: -120px;
+    justify-self: center;
 }
 
-.menu a{
+#menu-filtro {
+    display: flex;
+    gap: 15px;
+    position: absolute;
+    right: 135px;
+}
+
+#menu-filtro p {
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    color: rgb(8, 96, 14);
+    justify-content: center;
+    align-self: center;
+}
+
+.menu-principal a, #menu-filtro a, .acoes-topo a{
     text-decoration: none;
     color: rgb(14, 136, 7);
     background: rgb(218, 237, 221);
-    font-weight: 400;
-    font-size: 20px;
-
+    font-weight: 500;
+    font-size: 16px;
     padding: 12px 22px;
-
     border-radius: 14px;
-
     display: flex;
-    transition: 0.3s;
+    transition: 0.3s;    
 }
 
-.menu a:hover{
+.menu-principal a:hover, #menu-filtro a:hover{
     color: rgb(6, 56, 3);
     background: rgb(194, 234, 200);
     transform: translateY(-3px);
@@ -99,7 +130,8 @@ AÇÕES TOPO
 
 .acoes-topo{
     display: flex;
-    gap: 15px;
+    justify-self: right;
+    margin: 0 90px;
 }
 
 /* =========================
@@ -113,14 +145,13 @@ BOTÕES TOPO
     background: rgb(218, 237, 221);
 
     padding: 12px 22px;
-
     border-radius: 14px;
 
     cursor: pointer;
 
-    font-weight: 400;
-    font-size: 20px;
-
+    font-weight: 500;
+    font-size: 16px;
+    
     transition: 0.3s;
 }
 
@@ -153,14 +184,20 @@ BANNER DA LOJA
 
     position: relative;
 
-    padding-left: 50px;
+    /* padding-left: 50px; */
     z-index: 10;
+    pointer-events: none;
 }
 
 
 /* =========================
 SEÇÕES
 ========================= */
+
+.secao-master {
+    position: relative;
+    top: -70px;
+}
 
 .secao{
     margin: 50px 135px 0 135px;
@@ -195,8 +232,6 @@ CARDS
 ========================= */
 
 .cards{
-    border: 1px solid rgba(0,0,0,0.05);
-
     display: grid;
 
     grid-template-columns:
