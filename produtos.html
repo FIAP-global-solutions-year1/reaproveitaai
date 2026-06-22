@@ -81,7 +81,7 @@
 
                         <div class="botoes-card">
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -112,7 +112,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -143,7 +143,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -174,7 +174,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -218,7 +218,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -250,7 +250,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -282,7 +282,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -314,7 +314,7 @@
 
                         <div class="botoes-card">
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -359,7 +359,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -392,7 +392,7 @@
 
                         <div class="botoes-card">
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -425,7 +425,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -457,7 +457,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -488,7 +488,7 @@
 
                         <div class="botoes-card">
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -520,7 +520,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -554,7 +554,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -586,7 +586,7 @@
                         <div class="botoes-card">
 
 
-                            <button>Adicionar</button>
+                            <button class="btn-reservar">Reservar</button>
 
                         </div>
 
@@ -605,7 +605,38 @@
              <p>Todos os direitos reservados. © 2026 ReaproveitaAi</p>
 
          </footer>
-    
+
+    <!-- ========================= -->
+    <!-- MODAL DE RESERVA DE PRODUTO -->
+    <!-- ========================= -->
+    <div id="modal-reserva" class="modal-overlay" style="display: none;">
+        <div class="modal-conteudo">
+
+            <!-- Botão Fechar (X) -->
+            <button id="btn-fechar-modal" class="modal-btn-fechar" aria-label="Fechar">&times;</button>
+
+            <!-- Ícone de sucesso -->
+            <div class="modal-icone-sucesso">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <!-- Título -->
+            <h2 class="modal-titulo">Produto Reservado com Sucesso!</h2>
+
+            <!-- Texto informativo -->
+            <p class="modal-texto">Dirija-se ao estabelecimento para resgatar seu item. Tempo restante para o resgate:</p>
+
+            <!-- Cronômetro -->
+            <div id="modal-cronometro" class="modal-cronometro">02:00:00</div>
+
+            <!-- QR Code fictício -->
+            <img id="modal-qrcode" class="modal-qrcode" src="img/qrcode-voucher.png" alt="QR Code do Voucher de Reserva">
+
+            <p class="modal-texto-voucher">Apresente este QR Code no estabelecimento</p>
+
+        </div>
+    </div>
+
+    <script src="js/produtos.js"></script>
 </body>
-<script src="js/produtos.js"></script>
 </html>
