@@ -369,3 +369,147 @@ footer{
     padding: 20px;
     margin-top: 40px;
 }
+
+/* =========================
+   MODAL DE RESERVA
+========================= */
+
+/* Fundo semi-transparente escurecido */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: fadeIn 0.3s ease;
+}
+
+/* Conteúdo do modal (card central) */
+.modal-conteudo {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 48px 40px;
+    max-width: 460px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+
+    animation: slideUp 0.4s ease;
+}
+
+/* Botão de fechar (X) */
+.modal-btn-fechar {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.3s;
+}
+
+.modal-btn-fechar:hover {
+    color: #333;
+    transform: scale(1.2);
+}
+
+/* Ícone de sucesso */
+.modal-icone-sucesso {
+    margin-bottom: 16px;
+}
+
+.modal-icone-sucesso i {
+    font-size: 64px;
+    color: #2e7d32;
+}
+
+/* Título do modal */
+.modal-titulo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a680c;
+    margin-bottom: 12px;
+}
+
+/* Texto informativo */
+.modal-texto {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Cronômetro regressivo */
+.modal-cronometro {
+    font-size: 48px;
+    font-weight: 800;
+    color: #2e7d32;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    padding: 16px 32px;
+    border-radius: 16px;
+    display: inline-block;
+
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* QR Code fictício */
+.modal-qrcode {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border: 3px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 8px;
+    background: #fff;
+    margin-bottom: 12px;
+}
+
+/* Texto do voucher */
+.modal-texto-voucher {
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+}
+
+/* =========================
+   ANIMAÇÕES DO MODAL
+========================= */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.03); }
+}
