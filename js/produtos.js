@@ -10,3 +10,22 @@ document.addEventListener('click', function(evento) {
         carrinho.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> &nbsp; Carrinho (' + contador + ')';
     }
 });
+
+const ofertas = [
+  { nome: "Pães Frescos", preco: "Grátis" },
+  { nome: "SOPA", preco: "Grátis" },
+  { nome: "Cenoura", preco: "R$ 1,99" }
+];
+
+const listaNotificacao = document.getElementById("lista-notificacao");
+
+listaNotificacao.innerHTML = ofertas
+  .map(item => `<li>${item.nome} - ${item.preco}</li>`)
+  .join("");
+
+const btnNotificacao = document.getElementById("btn-notificacao");
+const caixaNotificacao = document.getElementById("caixa-notificacao");
+
+btnNotificacao.addEventListener("click", function () {
+  caixaNotificacao.classList.toggle("escondido");
+});
