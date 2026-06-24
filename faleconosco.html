@@ -65,7 +65,19 @@
                 </select>
 
                 <!-- Campo para mensagem -->
-                <textarea id="mensagem" placeholder="Mensagem" required minlength="20"></textarea>
+                <textarea id="mensagem" placeholder="Mensagem" required minlength="20"
+                 placeholder="Mensagem"
+                 required
+                 minlength="20">
+                </textarea>
+
+                <p id="erroMensagem" style="color:red; display:none;">
+                  A mensagem pode ter no máximo 500 caracteres.
+                </p>
+
+                 <p>
+                    <span id="contador">0</span>/500 caracteres
+                </p>
 
                 <!-- Botão de envio apenas visual -->
                 <button type="submit" id="btnEnviar">
