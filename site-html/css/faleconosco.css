@@ -1,0 +1,269 @@
+/* Remove margens padrão e melhora o cálculo de tamanhos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+/* Variáveis de cor usadas no projeto */
+:root {
+    --verde-escuro: #2f3d2a;
+    --verde-medio: #78915e;
+    --verde-claro: #dce9c9;
+    --verde-suave: #eef6e3;
+    --branco-suave: #fbfdf7;
+    --texto-suave: #8fa27d;
+}
+
+/* Corpo da página com fundo claro e atmosfera suave */
+body {
+    min-height: 100vh;
+    background-color: #FAFAF9;
+    color: black;
+}
+
+.barra-de-menu {
+    width: 100%;
+    height: 64px;
+    background: #ffffff;
+    padding: 10px 45px;
+    display: grid;
+    /* justify-content: space-between; */
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow:
+    0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.menu-principal {
+    display: flex;
+    gap: 15px;
+    justify-self: center;
+}
+
+.menu-principal a {
+    text-decoration: none;
+    color: rgb(14, 136, 7);
+    background: rgb(218, 237, 221);
+    font-weight: 500;
+    font-size: 16px;
+    padding: 12px 22px;
+    border-radius: 14px;
+    display: flex;
+    transition: 0.3s;
+}
+
+.menu-principal a:hover {
+    color: rgb(6, 56, 3);
+    background: rgb(194, 234, 200);
+    transform: translateY(-3px);
+}
+
+#btn-faleconosco {
+    color: rgb(136, 127, 7);
+    background: rgba(255, 247, 175, 0.89);
+}
+
+#btn-faleconosco:hover {
+    color: rgb(62, 59, 4);
+    background: rgba(252, 241, 147, 0.89);
+}   
+
+.logo img{
+    width: 220px;
+    position: absolute;
+    top: 25%;
+}
+
+/* Área principal que centraliza o conteúdo */
+.pagina-contato {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+}
+
+/* Bloco do conteúdo do formulário */
+.card-contato {
+    background-color: white;
+    padding: 25px;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    transform: translateY(-24px);
+}
+
+/* Texto pequeno acima do título */
+.etiqueta {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Título principal */
+.card-contato h1 {
+    margin-bottom: 14px;
+    font-size: clamp(38px, 5vw, 52px);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -1.8px;
+    color: var(--verde-escuro);
+}
+
+/* Parágrafo de apoio abaixo do título */
+.descricao {
+    margin-bottom: 40px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--texto-suave);
+}
+
+/* Organização vertical dos campos */
+.formulario-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Estilo compartilhado entre input e textarea */
+.formulario-contato input,
+.formulario-contato select,
+.formulario-contato textarea {
+    width: 100%;
+    border: 1px solid rgba(95, 145, 94, 0.28);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.55);
+    color: #6e7070;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Altura e espaçamento interno dos campos menores */
+.formulario-contato input,
+.formulario-contato select {
+    height: 50px;
+    padding: 0 22px;
+}
+
+/* Altura e espaçamento interno do campo de mensagem */
+.formulario-contato textarea {
+    height: 135px;
+    padding: 20px 22px;
+    resize: none;
+}
+
+/* Cor do texto que aparece dentro dos campos */
+.formulario-contato input::placeholder,
+.formulario-contato select::placeholder,
+.formulario-contato textarea::placeholder {
+    color: rgba(81, 84, 81, 0.55);
+}
+
+/* Efeito visual quando o usuário clica em um campo */
+.formulario-contato input:focus,
+.formulario-contato select:focus,
+.formulario-contato textarea:focus {
+    border-color: rgba(70, 139, 68, 0.206);
+    background: rgba(255, 255, 255, 0.967);
+    box-shadow:
+        0 0 0 4px rgba(72, 135, 75, 0.302),
+        0 0 20px rgba(70, 130, 73, 0.21);
+}
+
+/* Botão principal da página */
+.formulario-contato button {
+    height: 56px;
+    border: none;
+    border-radius: 16px;
+    background: #4B8E4F;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Tamanho e cor do ícone do botão */
+.formulario-contato button svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Efeito visual ao passar o mouse no botão */
+.formulario-contato button:hover {
+    background-color: #3d7341;
+    transition: background-color 0.2s ease;
+}
+
+/* Efeito visual ao clicar no botão */
+.formulario-contato button:active {
+    transform: translateY(0);
+}
+
+.rodape-site {
+    background-color: #4b8e4f !important;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+footer p {
+    font-size: 14px;
+    font-weight: 400;
+    color: white !important;
+}
+
+
+/* Ajustes para telas menores, como celulares */
+@media (max-width: 640px) {
+    .card-contato h1 {
+        font-size: 38px;
+    }
+
+    .pagina-contato {
+        align-items: flex-start;
+        padding-top: 90px;
+    }
+
+    .card-contato {
+        transform: none;
+    }
+
+    .etiqueta {
+        letter-spacing: 5px;
+    }
+
+    .descricao {
+        margin-bottom: 30px;
+    }
+
+    .formulario-contato input,
+    .formulario-contato select {
+        height: 52px;
+    }
+
+    .formulario-contato textarea {
+        height: 125px;
+    }
+}
