@@ -21,16 +21,13 @@
 
 <body>
     <div class="barra-de-menu">
-
         <div class="logo">
            <a href="produtos.html"><img src="img/logo-reaproveitaai.png" alt="logo"></a>
         </div>
-
         <div class="menu-principal">
             <a href="produtos.html">Produtos</a>
             <a href="faleconosco.html" id="btn-faleconosco">Fale Conosco</a>
         </div>
-
     </div>
 
     <!-- Área principal da tela de contato -->
@@ -65,7 +62,15 @@
                 </select>
 
                 <!-- Campo para mensagem -->
-                <textarea id="mensagem" placeholder="Mensagem" required minlength="20"></textarea>
+                <textarea id="mensagem" placeholder="Mensagem" required minlength="20" maxlength="500"></textarea>
+
+                <p id="erroMensagem" style="color:red; display:none;">
+                  A mensagem pode ter no máximo 500 caracteres.
+                </p>
+
+                 <p>
+                    <span id="contador">0</span>/500 caracteres
+                </p>
 
                 <!-- Botão de envio apenas visual -->
                 <button type="submit" id="btnEnviar">
