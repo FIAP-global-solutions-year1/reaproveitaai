@@ -1,47 +1,49 @@
 import { useState } from 'react'
 import '../css/login.css'
- 
+import logo from '../src/assets/logo-reaproveitaai.png'
+
 const Login = ({ setPaginaAtual }) => {
+  // controla qual aba está ativa: 'entrar' ou 'cadastro'
   const [aba, setAba] = useState('entrar')
- 
+
   // controla o dropdown de tipo de usuário (Consumidor / Lojista / ONG)
   const [seletorAberto, setSeletorAberto] = useState(false)
   const [tipoUsuario, setTipoUsuario] = useState('usuario1')
- 
+
   const rotulosTipoUsuario = {
     usuario1: 'Consumidor',
     usuario2: 'Lojista',
     usuario3: 'ONG',
   }
- 
+
   const selecionarTipoUsuario = (tipo) => {
     setTipoUsuario(tipo)
     setSeletorAberto(false)
   }
- 
+
   // ao logar/cadastrar, leva o usuário para a página de produtos
   const handleEntrar = (e) => {
     e.preventDefault()
     if (setPaginaAtual) setPaginaAtual('produtos')
   }
- 
+
   const handleCadastrar = (e) => {
     e.preventDefault()
     if (setPaginaAtual) setPaginaAtual('produtos')
   }
- 
+
   return (
     <>
       <header>
         <section id="logo-header">
-          <img src="img/logo-reaproveitaai.png" alt="logo-reaproveita-ai" />
+          <img src={logo} alt="logo-reaproveita-ai" />
           <p>Vídeo de apresentação do nosso MVP:</p>
           <a href="https://youtu.be/A0_BuhK70x4" target="_blank" rel="noreferrer">
             Vídeo Pitch (Clique aqui)
           </a>
         </section>
       </header>
- 
+
       <main>
         <div id="card-acesso">
           <section id="seletor-login">
@@ -52,7 +54,7 @@ const Login = ({ setPaginaAtual }) => {
               <p className={aba === 'cadastro' ? 'selecionado' : ''}>Criar conta</p>
             </button>
           </section>
- 
+
           <div id="campos-login-e-cadastro">
             {/* formulário de login */}
             <form
@@ -67,7 +69,7 @@ const Login = ({ setPaginaAtual }) => {
               <br />
               <input type="submit" value="Entrar" id="btn-login-entrar" />
             </form>
- 
+
             {/* formulário de cadastro */}
             <form
               id="campo-cadastro"
@@ -98,7 +100,7 @@ const Login = ({ setPaginaAtual }) => {
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button>
- 
+
                 <ul className={`opcoes-seletor ${seletorAberto ? 'ativo' : ''}`}>
                   <li
                     className="opcao-customizada"
@@ -123,13 +125,13 @@ const Login = ({ setPaginaAtual }) => {
                   </li>
                 </ul>
               </div>
- 
+
               <p>Nome completo</p>
               <input type="text" placeholder="Seu nome" required />
- 
+
               <p>E-mail</p>
               <input type="email" placeholder="seu@email.com" required />
- 
+
               {tipoUsuario === 'usuario1' ? (
                 <section id="section-cadastro-cpf" className="active">
                   <p>CPF</p>
@@ -159,7 +161,7 @@ const Login = ({ setPaginaAtual }) => {
                   />
                 </section>
               )}
- 
+
               <p>Senha</p>
               <input type="password" placeholder="Crie uma senha" required />
               <br />
@@ -168,12 +170,12 @@ const Login = ({ setPaginaAtual }) => {
           </div>
         </div>
       </main>
- 
+
       <footer>
         <p>Todos os direitos reservados. © 2026 ReaproveitaAi</p>
       </footer>
     </>
   )
 }
- 
+
 export default Login
