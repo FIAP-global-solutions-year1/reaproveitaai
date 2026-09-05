@@ -2,9 +2,6 @@ import { useEffect } from 'react'
 import '../css/carrinho.css'
 
 function Carrinho() {
-
-  // Preserva a interação JS do sino de notificação
-  // presente no header de produtos.html (js/produtos.js)
   useEffect(() => {
     const btnNotificacao = document.getElementById('btn-notificacao')
     const caixaNotificacao = document.getElementById('caixa-notificacao')
@@ -35,7 +32,6 @@ function Carrinho() {
 
   return (
     <>
-      {/* topo - copiado de produtos.html */}
       <div className="barra-de-menu">
         <div className="logo">
           <a href="produtos.html"><img src="img/logo-reaproveitaai.png" alt="logo" /></a>
@@ -66,10 +62,8 @@ function Carrinho() {
       </div>
 
 
-      {/* conteudo */}
       <main className="container">
 
-        {/* titulo */}
         <div className="page-title">
 
           <div>
@@ -298,7 +292,6 @@ function Carrinho() {
       </main>
 
 
-      {/* rodape - copiado de produtos.html */}
       <footer>
         <p>Todos os direitos reservados. © 2026 ReaproveitaAi</p>
       </footer>
