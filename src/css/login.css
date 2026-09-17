@@ -33,7 +33,7 @@ button, #btn-login-entrar, #btn-cadastro-criar {
 
 body {
     background-color: var(--cor-background);
-    margin-top: 10vh;
+    margin-top: 0;
 }
 
 header {
@@ -64,10 +64,18 @@ header a {
     align-items: center;
 }
 
-main {
+.pagina-login {
+    flex: 1;
+    align-items: flex-start;
     display: flex;
     justify-content: center;
+    padding: 24px 16px 32px;
 }
+
+.cabecalho-login {
+    padding-top: clamp(35px, 10vh, 96px);
+}
+
 
 /* card principal */
 #card-acesso {
@@ -250,8 +258,8 @@ main {
 
 footer {
     background-color: #4b8e4f !important;
-    position: fixed;
-    bottom: 0; 
+    position: static;
+    margin-top: auto;
     width: 100%; 
     text-align: center;
     display: flex;
@@ -306,4 +314,38 @@ footer p {
   padding: 8px 0;
   border-bottom: 1px solid #eee;
   font-size: 14px;
+}
+@media (max-width: 768px) {
+    #logo-header,
+    .cabecalho-login img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #card-acesso {
+        width: 100%;
+        max-width: 482.45px;
+        min-width: 0;
+        padding: 20px;
+    }
+
+    #campos-login-e-cadastro {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #seletor-login {
+        display: flex;
+        width: 100%;
+        min-width: 0;
+    }
+
+    #seletor-login button {
+        flex: 1;
+        min-width: 0;
+    }
+
+    #seletor-login button p {
+        width: 100%;
+    }
 }

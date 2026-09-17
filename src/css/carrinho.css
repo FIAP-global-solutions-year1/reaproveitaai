@@ -133,7 +133,7 @@ a {
     display: flex;
     align-items: center;
     justify-self: right;
-    margin: 0 90px;
+    margin: 0;
 }
 
 
@@ -234,9 +234,13 @@ a {
 
 /* o conteúdo principal cresce para empurrar
    o footer para o final da viewport */
-.container {
+.pagina-carrinho {
     flex: 1;
+    display: block;
+    width: 100%;
     max-width: 1200px;
+    min-width: 0;
+    text-align: left;
 
     margin: 0 auto;
 
@@ -249,7 +253,9 @@ a {
 .page-title {
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
 
     margin-bottom: 35px;
 }
@@ -277,7 +283,7 @@ a {
 .cart-layout {
     display: grid;
 
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: minmax(0, 1fr) 380px;
 
     gap: 30px;
 
@@ -433,6 +439,10 @@ a {
 }
 
 .quantity button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
     width: 30px;
     height: 30px;
 
@@ -719,6 +729,8 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
+    position: static;
+    width: 100%;
     margin-top: auto;
 }
 
@@ -737,13 +749,13 @@ footer {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
     .barra-de-menu {
         padding: 10px 20px;
     }
 
-    .container {
+    .pagina-carrinho {
         padding: 35px 15px 60px;
     }
 
@@ -786,4 +798,83 @@ footer {
         padding: 22px;
     }
 
+}
+
+/* Menu global em celulares e tablets pequenos. */
+@media (max-width: 768px) {
+    .barra-de-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        min-height: 64px;
+        padding: 10px 16px;
+        gap: 12px;
+    }
+
+    .barra-de-menu .logo {
+        flex: 0 1 160px;
+        min-width: 0;
+    }
+
+    .barra-de-menu .logo button {
+        display: block;
+        max-width: 100%;
+    }
+
+    .barra-de-menu .logo img {
+        display: block;
+        width: 100%;
+        max-width: 160px;
+        height: auto;
+        position: static;
+    }
+
+    .barra-de-menu .acoes-topo {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: static;
+    }
+
+    .barra-de-menu .menu-principal {
+        order: 3;
+        flex-basis: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        min-width: 0;
+    }
+
+    /* Sobrescreve apenas as medidas inline dos botoes do Header. */
+    .barra-de-menu .menu-principal button,
+    .barra-de-menu .menu-principal a {
+        padding: 8px 12px !important;
+        font-size: 14px !important;
+    }
+
+    .barra-de-menu .carrinho {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .barra-de-menu .notificacao-wrapper {
+        position: static;
+        margin: 0;
+    }
+
+    .barra-de-menu .caixa-notificacao {
+        top: calc(100% + 8px);
+        right: 16px;
+        max-width: calc(100vw - 32px);
+    }
+}
+
+.cart-products,
+.product-info > div,
+.coupon-input input {
+    min-width: 0;
 }

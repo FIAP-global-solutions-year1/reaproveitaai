@@ -1,0 +1,10 @@
+/* Limites de largura dos containers da SPA. */
+html,
+body,
+#root,
+#app-root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
