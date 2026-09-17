@@ -182,7 +182,7 @@ function CardProduto({ produto, onReservar }) {
 // COMPONENTE PRINCIPAL
 // =========================
 
-function Produtos({ onIncrementarCarrinho }) {
+function Produtos({ onAdicionarAoCarrinho }) {
   const [modalAberto, setModalAberto] = useState(false)
   const [tempo, setTempo] = useState(TEMPO_RESERVA)
 
@@ -204,10 +204,10 @@ function Produtos({ onIncrementarCarrinho }) {
     return () => clearInterval(intervalo)
   }, [modalAberto])
 
-  function handleReservar() {
+  function handleReservar(produto) {
     setTempo(TEMPO_RESERVA)   // reinicia o cronômetro a cada reserva
     setModalAberto(true)
-    onIncrementarCarrinho()
+    onAdicionarAoCarrinho(produto)
   }
 
   function fecharModal() {
@@ -283,7 +283,7 @@ function Produtos({ onIncrementarCarrinho }) {
             </div>
             <img
               className="modal-qrcode"
-              src="/img/qrcode-voucher.png"
+              src="img/qrcode-voucher.png"
               alt="QR Code do Voucher de Reserva"
             />
             <p className="modal-texto-voucher">Apresente este QR Code no estabelecimento</p>
