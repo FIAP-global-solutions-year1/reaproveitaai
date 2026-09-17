@@ -268,3 +268,76 @@ footer p {
         height: 125px;
     }
 }
+
+/* Menu global em celulares e tablets pequenos. */
+@media (max-width: 768px) {
+    .barra-de-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        min-height: 64px;
+        padding: 10px 16px;
+        gap: 12px;
+    }
+
+    .barra-de-menu .logo {
+        flex: 0 1 160px;
+        min-width: 0;
+    }
+
+    .barra-de-menu .logo button {
+        display: block;
+        max-width: 100%;
+    }
+
+    .barra-de-menu .logo img {
+        display: block;
+        width: 100%;
+        max-width: 160px;
+        height: auto;
+        position: static;
+    }
+
+    .barra-de-menu .acoes-topo {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+    }
+
+    .barra-de-menu .menu-principal {
+        order: 3;
+        flex-basis: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        min-width: 0;
+    }
+
+    /* Sobrescreve apenas as medidas inline dos botoes do Header. */
+    .barra-de-menu .menu-principal button,
+    .barra-de-menu .menu-principal a {
+        padding: 8px 12px !important;
+        font-size: 14px !important;
+    }
+
+    .barra-de-menu .carrinho {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .barra-de-menu .notificacao-wrapper {
+        position: static;
+        margin: 0;
+    }
+
+    .barra-de-menu .caixa-notificacao {
+        top: calc(100% + 8px);
+        right: 0;
+        max-width: calc(100vw - 32px);
+    }
+}
