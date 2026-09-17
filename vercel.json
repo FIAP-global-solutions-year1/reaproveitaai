@@ -1,5 +1,7 @@
 {
-  "buildCommand": "cd react && npm install && npm run build",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "cd react && npm ci",
+  "buildCommand": "cd react && npm run build",
   "outputDirectory": "react/dist",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
