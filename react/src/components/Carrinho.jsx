@@ -51,7 +51,7 @@ function Carrinho({ onNavegar }) {
   const fmt = (val) => val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 
   return (
-    <main className="container">
+    <main className="container pagina-carrinho">
 
       <div className="page-title">
         <div>
@@ -96,7 +96,7 @@ function Carrinho({ onNavegar }) {
                 </div>
 
                 <div className="quantity">
-                  <button type="button" onClick={() => decrementar(item.id)}>−</button>
+                  <button type="button" onClick={() => decrementar(item.id)}>-</button>
                   <span>{item.quantidade}</span>
                   <button type="button" onClick={() => incrementar(item.id)}>+</button>
                 </div>

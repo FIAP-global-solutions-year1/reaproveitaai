@@ -234,9 +234,13 @@ a {
 
 /* o conteúdo principal cresce para empurrar
    o footer para o final da viewport */
-.container {
+.pagina-carrinho {
     flex: 1;
+    display: block;
+    width: 100%;
     max-width: 1200px;
+    min-width: 0;
+    text-align: left;
 
     margin: 0 auto;
 
@@ -249,7 +253,9 @@ a {
 .page-title {
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
 
     margin-bottom: 35px;
 }
@@ -277,7 +283,7 @@ a {
 .cart-layout {
     display: grid;
 
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: minmax(0, 1fr) 380px;
 
     gap: 30px;
 
@@ -433,6 +439,10 @@ a {
 }
 
 .quantity button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
     width: 30px;
     height: 30px;
 
@@ -745,7 +755,7 @@ footer {
         padding: 10px 20px;
     }
 
-    .container {
+    .pagina-carrinho {
         padding: 35px 15px 60px;
     }
 
