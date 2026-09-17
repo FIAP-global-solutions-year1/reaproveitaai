@@ -6,33 +6,36 @@ Projeto acadêmico FIAP ON, Engenharia de Software, Sprint 6. A aplicação é u
 
 ```text
 reaproveitaai/
-├── react/                    # Código-fonte e configuração da SPA
-│   ├── src/components/       # Componentes React
-│   ├── src/css/              # Estilos das telas
-│   ├── public/img/           # Assets públicos, incluindo o QR Code
-│   ├── index.html            # Entrada do Vite
-│   └── dist/                 # Build gerado, ignorado pelo Git
+├── src/components/           # Componentes React
+├── src/css/                  # Estilos das telas
+├── public/img/               # Assets públicos, incluindo o QR Code
 ├── .github/workflows/        # Validação e deploy no GitHub Pages
-├── vercel.json               # Deploy do build de react/
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── eslint.config.js
+├── index.html                # Entrada oficial do Vite
+├── vercel.json
 ├── README.md
-└── GuiaGithub.md
+├── GuiaGithub.md
+└── dist/                     # Build gerado, ignorado pelo Git
 ```
 
-Os arquivos HTML e os diretórios estáticos das Fases 4 e 5 foram removidos da raiz. A entrada oficial do site é `react/index.html`; o build é gerado exclusivamente em `react/dist/`.
+O projeto React e suas configurações ficam diretamente na raiz, sem a pasta intermediária `react/`. Os arquivos HTML e diretórios estáticos das Fases 4 e 5 foram removidos; `index.html` é a entrada atual da SPA.
 
 ## Execução local
 
-Use Node.js 24 e npm. Na raiz do repositório:
+Use Node.js 24 e npm. Execute na raiz do repositório:
 
 ```sh
-cd react
-npm ci
+npm install
 npm run dev
 ```
 
-`npm ci` instala apenas as dependências declaradas no lockfile existente.
+O Vite usa a porta padrão 5173. A instalação utiliza as dependências já declaradas no projeto.
 
-Para validar e visualizar a versão compilada, dentro de `react/`:
+Para validar e visualizar a versão compilada, também na raiz:
 
 ```sh
 npm run lint -- --max-warnings 0
@@ -40,16 +43,19 @@ npm run build
 npm run preview
 ```
 
+O build é gerado em `dist/`. Módulos, builds, arquivos `.env` e configurações locais dos editores são ignorados pelo Git.
+
 ## Deploy
 
-Na Vercel, mantenha o Root Directory na raiz do repositório. O `vercel.json` executa a instalação e o build dentro de `react/`, publica `react/dist/` e direciona as rotas da SPA para `index.html`.
+Na Vercel, mantenha o Root Directory na raiz do repositório. O `vercel.json` executa `npm install` e `npm run build` sem prefixos de pasta, publica `dist/` e direciona as rotas da SPA para `/index.html`.
 
-O workflow de GitHub Pages também instala, valida e compila em `react/`, enviando diretamente `react/dist/` como artefato. Ele não copia nem utiliza arquivos legados da raiz.
+O workflow de GitHub Pages usa `package-lock.json` para o cache, executa `npm ci`, lint e build na raiz e envia diretamente `dist/` como artefato.
 
 ## Registros de validação
 
-- [Layout e responsividade](react/VALIDACAO_LAYOUT.md)
-- [Carrinho dinâmico e QR Code](react/VALIDACAO_CARRINHO.md)
-- [Limpeza da estrutura e configuração de deploy](react/VALIDACAO_ESTRUTURA.md)
+- [Layout e responsividade](VALIDACAO_LAYOUT.md)
+- [Carrinho dinâmico e QR Code](VALIDACAO_CARRINHO.md)
+- [Limpeza anterior da estrutura](VALIDACAO_ESTRUTURA.md)
+- [Migração do React para a raiz](VALIDACAO_RAIZ.md)
 
-O fluxo de versionamento do grupo está documentado em [GuiaGithub.md](GuiaGithub.md).
+Os registros anteriores preservam os caminhos utilizados à época. O fluxo de versionamento do grupo está documentado em [GuiaGithub.md](GuiaGithub.md).

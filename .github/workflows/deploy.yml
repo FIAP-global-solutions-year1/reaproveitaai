@@ -32,21 +32,18 @@ jobs:
         with:
           node-version: 24
           cache: 'npm'
-          cache-dependency-path: react/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Instalar dependências
         run: |
-          cd react
           npm ci
 
       - name: Validar lint
         run: |
-          cd react
           npm run lint -- --max-warnings 0
 
       - name: Build do Vite (React)
         run: |
-          cd react
           npm run build
 
       - name: Configurar Pages
@@ -55,7 +52,7 @@ jobs:
       - name: Upload do artefato
         uses: actions/upload-pages-artifact@v3
         with:
-          path: react/dist
+          path: dist
 
       - name: Deploy no GitHub Pages
         id: deployment
