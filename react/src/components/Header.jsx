@@ -6,7 +6,7 @@ const OFERTAS = [
   { nome: 'Cenoura', preco: 'R$ 1,99' },
 ]
 
-function Header({ telaAtual, onNavegar, qtdCarrinho }) {
+function Header({ onNavegar, qtdCarrinho }) {
   const [notificacaoAberta, setNotificacaoAberta] = useState(false)
 
   return (

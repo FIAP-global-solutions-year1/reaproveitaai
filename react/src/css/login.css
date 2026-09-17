@@ -69,17 +69,13 @@ header a {
     align-items: flex-start;
     display: flex;
     justify-content: center;
+    padding: 24px 16px 32px;
 }
 
 .cabecalho-login {
     padding-top: clamp(35px, 10vh, 96px);
 }
 
-.pagina-login {
-    flex: 1;
-    align-items: flex-start;
-    padding: 24px 16px 32px;
-}
 
 /* card principal */
 #card-acesso {

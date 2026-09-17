@@ -243,7 +243,6 @@ footer p {
     }
 
     .pagina-contato {
-    flex: 1;
         align-items: flex-start;
         padding-top: 90px;
     }

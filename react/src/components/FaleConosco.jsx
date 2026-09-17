@@ -11,7 +11,7 @@ function FaleConosco() {
   const [mensagem, setMensagem] = useState('')
 
   // Mensagem de feedback após envio
-  const [enviado, setEnviado] = useState(false)
+  const [, setEnviado] = useState(false)
 
   // Valida nome completo: mínimo 2 palavras, cada uma com ≥ 2 letras
   function nomeValido(valor) {
