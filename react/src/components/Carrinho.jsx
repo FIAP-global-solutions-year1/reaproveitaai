@@ -1,52 +1,11 @@
-import { useState } from 'react'
 import '../css/carrinho.css'
-
-const ITENS_INICIAIS = [
-  {
-    id: 1,
-    nome: 'Cesta de Frutas',
-    descricao: 'Frutas selecionadas',
-    preco: 24.90,
-    quantidade: 1,
-    imagem: 'https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=300&q=80',
-    alt: 'Cesta de frutas',
-  },
-  {
-    id: 2,
-    nome: 'Salada Fresca',
-    descricao: 'Ingredientes selecionados',
-    preco: 18.50,
-    quantidade: 2,
-    imagem: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=300&q=80',
-    alt: 'Salada',
-  },
-]
 
 const ENTREGA = 5.00
 
-function Carrinho({ onNavegar }) {
-  const [itens, setItens] = useState(ITENS_INICIAIS)
-
-  function incrementar(id) {
-    setItens(prev =>
-      prev.map(item => item.id === id ? { ...item, quantidade: item.quantidade + 1 } : item)
-    )
-  }
-
-  function decrementar(id) {
-    setItens(prev =>
-      prev.map(item =>
-        item.id === id ? { ...item, quantidade: Math.max(1, item.quantidade - 1) } : item
-      )
-    )
-  }
-
-  function remover(id) {
-    setItens(prev => prev.filter(item => item.id !== id))
-  }
-
+function Carrinho({ itens, onAtualizarQuantidade, onRemover, onNavegar }) {
   const subtotal = itens.reduce((acc, item) => acc + item.preco * item.quantidade, 0)
-  const total = subtotal + ENTREGA
+  const entrega = itens.length > 0 ? ENTREGA : 0
+  const total = subtotal + entrega
 
   const fmt = (val) => val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 
@@ -88,7 +47,7 @@ function Carrinho({ onNavegar }) {
                     <h3>{item.nome}</h3>
                     <p>{item.descricao}</p>
                     <span className="product-price">{fmt(item.preco)}</span>
-                    <button className="remove" type="button" onClick={() => remover(item.id)}>
+                    <button className="remove" type="button" onClick={() => onRemover(item.id)}>
                       <i className="fa-regular fa-trash-can"></i>
                       Remover
                     </button>
@@ -96,9 +55,9 @@ function Carrinho({ onNavegar }) {
                 </div>
 
                 <div className="quantity">
-                  <button type="button" onClick={() => decrementar(item.id)}>-</button>
+                  <button type="button" onClick={() => onAtualizarQuantidade(item.id, item.quantidade - 1)}>-</button>
                   <span>{item.quantidade}</span>
-                  <button type="button" onClick={() => incrementar(item.id)}>+</button>
+                  <button type="button" onClick={() => onAtualizarQuantidade(item.id, item.quantidade + 1)}>+</button>
                 </div>
 
                 <strong className="product-total">{fmt(item.preco * item.quantidade)}</strong>
@@ -131,7 +90,7 @@ function Carrinho({ onNavegar }) {
 
           <div className="summary-line">
             <span>Entrega</span>
-            <strong>{fmt(ENTREGA)}</strong>
+            <strong>{fmt(entrega)}</strong>
           </div>
 
           <div className="coupon">
