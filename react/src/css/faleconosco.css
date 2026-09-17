@@ -81,6 +81,7 @@ body {
 
 /* Área principal que centraliza o conteúdo */
 .pagina-contato {
+    flex: 1;
     position: relative;
     display: flex;
     align-items: center;
@@ -218,8 +219,8 @@ body {
 
 .rodape-site {
     background-color: #4b8e4f !important;
-    position: fixed;
-    bottom: 0;
+    position: static;
+    margin-top: auto;
     width: 100%;
     text-align: center;
     display: flex;
@@ -242,6 +243,7 @@ footer p {
     }
 
     .pagina-contato {
+    flex: 1;
         align-items: flex-start;
         padding-top: 90px;
     }

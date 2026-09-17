@@ -65,6 +65,8 @@ header a {
 }
 
 .pagina-login {
+    flex: 1;
+    align-items: flex-start;
     display: flex;
     justify-content: center;
 }
@@ -74,6 +76,8 @@ header a {
 }
 
 .pagina-login {
+    flex: 1;
+    align-items: flex-start;
     padding: 24px 16px 32px;
 }
 
@@ -258,8 +262,8 @@ header a {
 
 footer {
     background-color: #4b8e4f !important;
-    position: fixed;
-    bottom: 0; 
+    position: static;
+    margin-top: auto;
     width: 100%; 
     text-align: center;
     display: flex;
