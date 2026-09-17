@@ -45,7 +45,7 @@ function Login({ onNavegar }) {
 
   return (
     <>
-      <header>
+      <header className="cabecalho-login">
         <section id="logo-header">
           <img src="/img/logo-reaproveitaai.png" alt="logo-reaproveita-ai" />
           <p>Vídeo de apresentação do nosso MVP:</p>
@@ -55,7 +55,7 @@ function Login({ onNavegar }) {
         </section>
       </header>
 
-      <main>
+      <main className="pagina-login">
         <div id="card-acesso">
 
           {/* Seletor Entrar / Criar conta */}

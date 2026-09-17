@@ -33,7 +33,7 @@ button, #btn-login-entrar, #btn-cadastro-criar {
 
 body {
     background-color: var(--cor-background);
-    margin-top: 10vh;
+    margin-top: 0;
 }
 
 header {
@@ -64,9 +64,17 @@ header a {
     align-items: center;
 }
 
-main {
+.pagina-login {
     display: flex;
     justify-content: center;
+}
+
+.cabecalho-login {
+    padding-top: clamp(35px, 10vh, 96px);
+}
+
+.pagina-login {
+    padding: 24px 16px 32px;
 }
 
 /* card principal */
