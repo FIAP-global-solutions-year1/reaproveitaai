@@ -749,7 +749,7 @@ footer {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
     .barra-de-menu {
         padding: 10px 20px;
@@ -836,7 +836,7 @@ footer {
         display: flex;
         align-items: center;
         gap: 8px;
-        position: relative;
+        position: static;
     }
 
     .barra-de-menu .menu-principal {
@@ -868,7 +868,13 @@ footer {
 
     .barra-de-menu .caixa-notificacao {
         top: calc(100% + 8px);
-        right: 0;
+        right: 16px;
         max-width: calc(100vw - 32px);
     }
+}
+
+.cart-products,
+.product-info > div,
+.coupon-input input {
+    min-width: 0;
 }

@@ -315,3 +315,37 @@ footer p {
   border-bottom: 1px solid #eee;
   font-size: 14px;
 }
+@media (max-width: 768px) {
+    #logo-header,
+    .cabecalho-login img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #card-acesso {
+        width: 100%;
+        max-width: 482.45px;
+        min-width: 0;
+        padding: 20px;
+    }
+
+    #campos-login-e-cadastro {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #seletor-login {
+        display: flex;
+        width: 100%;
+        min-width: 0;
+    }
+
+    #seletor-login button {
+        flex: 1;
+        min-width: 0;
+    }
+
+    #seletor-login button p {
+        width: 100%;
+    }
+}

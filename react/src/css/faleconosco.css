@@ -305,7 +305,7 @@ footer p {
         display: flex;
         align-items: center;
         gap: 8px;
-        position: relative;
+        position: static;
     }
 
     .barra-de-menu .menu-principal {
@@ -337,7 +337,7 @@ footer p {
 
     .barra-de-menu .caixa-notificacao {
         top: calc(100% + 8px);
-        right: 0;
+        right: 16px;
         max-width: calc(100vw - 32px);
     }
 }

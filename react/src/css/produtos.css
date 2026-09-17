@@ -598,7 +598,7 @@ footer{
         display: flex;
         align-items: center;
         gap: 8px;
-        position: relative;
+        position: static;
     }
 
     .barra-de-menu .menu-principal {
@@ -630,7 +630,54 @@ footer{
 
     .barra-de-menu .caixa-notificacao {
         top: calc(100% + 8px);
-        right: 0;
+        right: 16px;
         max-width: calc(100vw - 32px);
+    }
+}
+
+@media (max-width: 768px) {
+    .barra-de-filtro {
+        height: auto;
+        padding: 10px 16px;
+    }
+
+    #menu-filtro {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        width: 100%;
+        gap: 8px;
+    }
+
+    #menu-filtro a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .secao {
+        margin: 32px 16px 0;
+        padding: 24px 16px;
+    }
+
+    .secao h2 {
+        font-size: 28px;
+        overflow-wrap: break-word;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .card {
+        flex: 1 1 260px;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .modal-conteudo {
+        padding: 32px 20px;
     }
 }
