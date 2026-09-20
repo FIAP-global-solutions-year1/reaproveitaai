@@ -1,13 +1,35 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Notificacoes from './Notificacoes'
 
-const OFERTAS = [
-  { nome: 'Pães Frescos', preco: 'Grátis' },
-  { nome: 'SOPA', preco: 'Grátis' },
-  { nome: 'Cenoura', preco: 'R$ 1,99' },
-]
-
-function Header({ onNavegar, qtdCarrinho }) {
+function Header({ onNavegar, qtdCarrinho, notificacoes, onMarcarLida, onMarcarTodasLidas, onLimparNotificacoes }) {
   const [notificacaoAberta, setNotificacaoAberta] = useState(false)
+  const notificacaoRef = useRef(null)
+  const naoLidas = notificacoes.filter(n => !n.lida).length
+
+  // A caixa de notificações fecha ao clicar fora dela ou ao pressionar Esc
+  useEffect(() => {
+    if (!notificacaoAberta) return
+
+    function fecharAoClicarFora(evento) {
+      if (!notificacaoRef.current.contains(evento.target)) {
+        setNotificacaoAberta(false)
+      }
+    }
+
+    function fecharComEsc(evento) {
+      if (evento.key === 'Escape') {
+        setNotificacaoAberta(false)
+      }
+    }
+
+    document.addEventListener('mousedown', fecharAoClicarFora)
+    document.addEventListener('keydown', fecharComEsc)
+
+    return () => {
+      document.removeEventListener('mousedown', fecharAoClicarFora)
+      document.removeEventListener('keydown', fecharComEsc)
+    }
+  }, [notificacaoAberta])
 
   return (
     <div className="barra-de-menu">
@@ -45,25 +67,25 @@ function Header({ onNavegar, qtdCarrinho }) {
       {/* Ações: sino + carrinho */}
       <div className="acoes-topo">
 
-        <div className="notificacao-wrapper">
+        <div className="notificacao-wrapper" ref={notificacaoRef}>
           <button
             type="button"
             className="btn-notificacao"
             onClick={() => setNotificacaoAberta(prev => !prev)}
-            aria-label="Notificações"
+            aria-label={naoLidas > 0 ? `Notificações (${naoLidas} não lidas)` : 'Notificações'}
+            aria-expanded={notificacaoAberta}
           >
             <i className="fa-solid fa-bell"></i>
+            {naoLidas > 0 && <span className="badge-notificacao">{naoLidas}</span>}
           </button>
 
           {notificacaoAberta && (
-            <div className="caixa-notificacao">
-              <h4>Ofertas para você</h4>
-              <ul>
-                {OFERTAS.map((item, idx) => (
-                  <li key={idx}>{item.nome} - {item.preco}</li>
-                ))}
-              </ul>
-            </div>
+            <Notificacoes
+              notificacoes={notificacoes}
+              onMarcarLida={onMarcarLida}
+              onMarcarTodasLidas={onMarcarTodasLidas}
+              onLimpar={onLimparNotificacoes}
+            />
           )}
         </div>
 
