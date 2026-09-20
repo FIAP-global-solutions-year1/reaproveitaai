@@ -41,7 +41,7 @@ function Header({ onNavegar, qtdCarrinho, notificacoes, onMarcarLida, onMarcarTo
           onClick={() => onNavegar('login')}
           style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
         >
-          <img src="/img/logo-reaproveitaai.png" alt="logo ReaproveitaAi" />
+          <img src="img/logo-reaproveitaai.png" alt="logo ReaproveitaAi" />
         </button>
       </div>
 
