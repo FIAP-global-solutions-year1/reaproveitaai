@@ -47,7 +47,7 @@ function Login({ onNavegar }) {
     <>
       <header className="cabecalho-login">
         <section id="logo-header">
-          <img src="/img/logo-reaproveitaai.png" alt="logo-reaproveita-ai" />
+          <img src="img/logo-reaproveitaai.png" alt="logo-reaproveita-ai" />
           <p>Vídeo de apresentação do nosso MVP:</p>
           <a href="https://youtu.be/A0_BuhK70x4" target="_blank" rel="noreferrer">
             Vídeo Pitch (Clique aqui)

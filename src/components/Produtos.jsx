@@ -153,6 +153,11 @@ function formatarTempo(totalSegundos) {
   return `${pad(horas)}:${pad(minutos)}:${pad(segundos)}`
 }
 
+function horarioDeResgate(totalSegundos) {
+  const limite = new Date(Date.now() + totalSegundos * 1000)
+  return limite.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
+}
+
 // =========================
 // SUB-COMPONENTE: Card
 // =========================
@@ -182,7 +187,7 @@ function CardProduto({ produto, onReservar }) {
 // COMPONENTE PRINCIPAL
 // =========================
 
-function Produtos({ onAdicionarAoCarrinho }) {
+function Produtos({ onAdicionarAoCarrinho, onNotificar }) {
   const [modalAberto, setModalAberto] = useState(false)
   const [tempo, setTempo] = useState(TEMPO_RESERVA)
 
@@ -208,6 +213,11 @@ function Produtos({ onAdicionarAoCarrinho }) {
     setTempo(TEMPO_RESERVA)   // reinicia o cronômetro a cada reserva
     setModalAberto(true)
     onAdicionarAoCarrinho(produto)
+    onNotificar({
+      tipo: 'reserva',
+      titulo: 'Reserva confirmada',
+      descricao: `${produto.nome} em ${produto.loja}. Retire até ${horarioDeResgate(TEMPO_RESERVA)}.`,
+    })
   }
 
   function fecharModal() {
