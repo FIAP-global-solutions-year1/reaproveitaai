@@ -1,9 +1,5 @@
-import { useState, useEffect } from 'react'
-import '../css/produtos.css'
-
-// =========================
-// DADOS DO CATÁLOGO
-// =========================
+import { useEffect, useState } from 'react'
+import './index.css'
 
 const BEBIDAS = [
   {
@@ -142,7 +138,6 @@ const PRATICIDADE = [
   },
 ]
 
-// Tempo total da reserva em segundos (2 horas)
 const TEMPO_RESERVA = 7200
 
 function formatarTempo(totalSegundos) {
@@ -157,10 +152,6 @@ function horarioDeResgate(totalSegundos) {
   const limite = new Date(Date.now() + totalSegundos * 1000)
   return limite.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
 }
-
-// =========================
-// SUB-COMPONENTE: Card
-// =========================
 
 function CardProduto({ produto, onReservar }) {
   return (
@@ -183,15 +174,10 @@ function CardProduto({ produto, onReservar }) {
   )
 }
 
-// =========================
-// COMPONENTE PRINCIPAL
-// =========================
-
-function Produtos({ onAdicionarAoCarrinho, onNotificar }) {
+function ProdutosRoute({ onAdicionarAoCarrinho, onNotificar }) {
   const [modalAberto, setModalAberto] = useState(false)
   const [tempo, setTempo] = useState(TEMPO_RESERVA)
 
-  // Cronômetro regressivo — só roda enquanto o modal está aberto
   useEffect(() => {
     if (!modalAberto) return
 
@@ -205,12 +191,11 @@ function Produtos({ onAdicionarAoCarrinho, onNotificar }) {
       })
     }, 1000)
 
-    // Cleanup obrigatório: evita vazamento de memória
     return () => clearInterval(intervalo)
   }, [modalAberto])
 
   function handleReservar(produto) {
-    setTempo(TEMPO_RESERVA)   // reinicia o cronômetro a cada reserva
+    setTempo(TEMPO_RESERVA)
     setModalAberto(true)
     onAdicionarAoCarrinho(produto)
     onNotificar({
@@ -227,10 +212,8 @@ function Produtos({ onAdicionarAoCarrinho, onNotificar }) {
 
   return (
     <>
-      {/* Banner */}
       <div className="banner"></div>
 
-      {/* Filtro de categorias (scroll interno da página) */}
       <div className="barra-de-filtro">
         <section id="menu-filtro">
           <p>Filtro: &nbsp;</p>
@@ -240,9 +223,7 @@ function Produtos({ onAdicionarAoCarrinho, onNotificar }) {
         </section>
       </div>
 
-      {/* Seções de produtos */}
       <div className="secao-master">
-
         <div className="secao" id="bebidas">
           <h2>Bebidas</h2>
           <div className="cards">
@@ -258,45 +239,25 @@ function Produtos({ onAdicionarAoCarrinho, onNotificar }) {
         </div>
 
         <div className="secao" id="praticidade">
-          <h2>Praticidade para seu Dia</h2>
+          <h2>Praticidade</h2>
           <div className="cards">
             {PRATICIDADE.map(p => <CardProduto key={p.id} produto={p} onReservar={handleReservar} />)}
           </div>
         </div>
-
       </div>
 
-      {/* Modal de Reserva — controlado por modalAberto */}
       {modalAberto && (
-        <div
-          className="modal-overlay"
-          onClick={e => { if (e.target === e.currentTarget) fecharModal() }}
-        >
-          <div className="modal-conteudo">
-            <button
-              type="button"
-              className="modal-btn-fechar"
-              aria-label="Fechar"
-              onClick={fecharModal}
-            >
-              &times;
-            </button>
+        <div className="modal-overlay" onClick={fecharModal}>
+          <div className="modal-conteudo" onClick={e => e.stopPropagation()}>
+            <button className="modal-btn-fechar" type="button" onClick={fecharModal}>×</button>
             <div className="modal-icone-sucesso">
               <i className="fa-solid fa-circle-check"></i>
             </div>
-            <h2 className="modal-titulo">Produto Reservado com Sucesso!</h2>
-            <p className="modal-texto">
-              Dirija-se ao estabelecimento para resgatar seu item. Tempo restante para o resgate:
-            </p>
-            <div className="modal-cronometro">
-              {formatarTempo(tempo)}
-            </div>
-            <img
-              className="modal-qrcode"
-              src="img/qrcode-voucher.png"
-              alt="QR Code do Voucher de Reserva"
-            />
-            <p className="modal-texto-voucher">Apresente este QR Code no estabelecimento</p>
+            <h3 className="modal-titulo">Reserva confirmada!</h3>
+            <p className="modal-texto">Sua reserva foi feita com sucesso. A validade do voucher expira em:</p>
+            <div className="modal-cronometro">{formatarTempo(tempo)}</div>
+            <img className="modal-qrcode" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=ReaproveitaAi" alt="QR Code da reserva" />
+            <p className="modal-texto-voucher">Voucher válido até {horarioDeResgate(tempo)}</p>
           </div>
         </div>
       )}
@@ -304,4 +265,4 @@ function Produtos({ onAdicionarAoCarrinho, onNotificar }) {
   )
 }
 
-export default Produtos
+export default ProdutosRoute

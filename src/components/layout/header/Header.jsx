@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
-import Notificacoes from './Notificacoes'
+import { NavLink, useNavigate } from 'react-router-dom'
+import Notificacoes from '../../ui/notificacoes/Notificacoes'
+import './Header.css'
 
-function Header({ onNavegar, qtdCarrinho, notificacoes, onMarcarLida, onMarcarTodasLidas, onLimparNotificacoes }) {
+function Header({ qtdCarrinho, notificacoes, onMarcarLida, onMarcarTodasLidas, onLimparNotificacoes }) {
   const [notificacaoAberta, setNotificacaoAberta] = useState(false)
   const notificacaoRef = useRef(null)
+  const navigate = useNavigate()
   const naoLidas = notificacoes.filter(n => !n.lida).length
 
-  // A caixa de notificações fecha ao clicar fora dela ou ao pressionar Esc
   useEffect(() => {
     if (!notificacaoAberta) return
 
@@ -33,40 +35,57 @@ function Header({ onNavegar, qtdCarrinho, notificacoes, onMarcarLida, onMarcarTo
 
   return (
     <div className="barra-de-menu">
-
-      {/* Logo → volta para Login/Home */}
       <div className="logo">
         <button
           type="button"
-          onClick={() => onNavegar('login')}
+          onClick={() => navigate('/login')}
           style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
         >
           <img src="img/logo-reaproveitaai.png" alt="logo ReaproveitaAi" />
         </button>
       </div>
 
-      {/* Menu principal */}
       <div className="menu-principal">
-        <button
-          type="button"
-          onClick={() => onNavegar('produtos')}
-          style={{ background: 'rgb(218, 237, 221)', border: 'none', cursor: 'pointer', textDecoration: 'none', color: 'rgb(14, 136, 7)', fontWeight: 500, fontSize: 16, padding: '12px 22px', borderRadius: 14, display: 'flex', transition: '0.3s' }}
+        <NavLink
+          to="/produtos"
+          style={({ isActive }) => ({
+            background: isActive ? 'rgb(218, 237, 221)' : 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            textDecoration: 'none',
+            color: 'rgb(14, 136, 7)',
+            fontWeight: 500,
+            fontSize: 16,
+            padding: '12px 22px',
+            borderRadius: 14,
+            display: 'flex',
+            transition: '0.3s',
+          })}
         >
           Produtos
-        </button>
-        <button
-          type="button"
+        </NavLink>
+        <NavLink
+          to="/faleconosco"
           id="btn-faleconosco"
-          onClick={() => onNavegar('faleconosco')}
-          style={{ border: 'none', cursor: 'pointer', color: 'rgb(136, 127, 7)', background: 'rgba(255, 247, 175, 0.89)', fontWeight: 500, fontSize: 16, padding: '12px 22px', borderRadius: 14, display: 'flex', transition: '0.3s' }}
+          style={({ isActive }) => ({
+            border: 'none',
+            cursor: 'pointer',
+            color: 'rgb(136, 127, 7)',
+            background: isActive ? 'rgba(255, 247, 175, 0.89)' : 'transparent',
+            fontWeight: 500,
+            fontSize: 16,
+            padding: '12px 22px',
+            borderRadius: 14,
+            display: 'flex',
+            transition: '0.3s',
+            textDecoration: 'none',
+          })}
         >
           Fale Conosco
-        </button>
+        </NavLink>
       </div>
 
-      {/* Ações: sino + carrinho */}
       <div className="acoes-topo">
-
         <div className="notificacao-wrapper" ref={notificacaoRef}>
           <button
             type="button"
@@ -92,14 +111,12 @@ function Header({ onNavegar, qtdCarrinho, notificacoes, onMarcarLida, onMarcarTo
         <button
           type="button"
           className="carrinho"
-          onClick={() => onNavegar('carrinho')}
+          onClick={() => navigate('/carrinho')}
         >
           <i className="fa-solid fa-cart-shopping"></i>
           &nbsp; Carrinho {qtdCarrinho > 0 ? `(${qtdCarrinho})` : ''}
         </button>
-
       </div>
-
     </div>
   )
 }
