@@ -1,0 +1,325 @@
+:root {
+    --cor-background:#FAFAF9;
+    --cor-background-secundario: #c0d0c8;
+    --cor-cards: white;
+    --cor-principal: #007338;
+    --cor-secundaria: #19814C;
+    --cor-texto-primaria: #0B140D;
+    --cor-texto-secundaria: #5C675D;
+    --tam-texto-pequeno: 16px;
+    --tam-texto-grande: 30px;
+    --arredondamento-card: 14px;
+    --arredondamento-btn: 14px;
+    --weight-texto-pequeno: 400;
+    --cor-msg-erro: #D32F2F;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+    color: var(--cor-texto-primaria);
+}
+
+button, #btn-login-entrar, #btn-cadastro-criar {
+    appearance: none;
+    background: transparent;
+    border: none;
+    font: inherit;
+}
+
+body {
+    background-color: var(--cor-background);
+    margin-top: 0;
+}
+
+header {
+    padding: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 320px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+header p, header a {
+    font-weight: 300;
+    font-size: var(--tam-texto-pequeno);
+    text-align: center;
+}
+
+header a {
+    font-weight: 700;
+    color: rgb(38, 146, 89);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagina-login {
+    flex: 1;
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    padding: 24px 16px 32px;
+}
+
+.cabecalho-login {
+    padding-top: clamp(35px, 10vh, 96px);
+}
+
+#card-acesso {
+    background-color: var(--cor-cards);
+    padding: 28px 24px;
+    width: min(100%, 520px);
+    height: auto;
+    border-radius: var(--arredondamento-card);
+    box-shadow: 0 12px 28px rgba(24, 63, 29, 0.09);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border: var(--borda);
+}
+
+#seletor-login {
+    background: linear-gradient(135deg, #4b8e4f, #2e6b38);
+    width: max-content;
+    min-width: max-content;
+    height: max-content;
+    padding: 4px;
+    border-radius: var(--arredondamento-btn);
+    margin-bottom: 10px;
+    box-shadow: 0 8px 18px rgba(41, 94, 50, 0.18);
+}
+
+#seletor-login button p {
+    font-weight: 600;
+    padding: 8px 0 8px 0;
+    width: 210px;
+    border-radius: var(--arredondamento-btn);
+    background-color: transparent;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    color: white;
+    transition: color 0.2s ease;
+}
+
+#seletor-login button p:hover {
+    color: rgb(196, 213, 204);
+    transition: color 0.2s ease;
+}
+
+.selecionado {
+    background-color: var(--cor-cards) !important;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2) !important;
+    color: var(--cor-texto-primaria) !important;
+}
+
+#campos-login-e-cadastro {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+    width: 432.45px;
+}
+
+#campos-login-e-cadastro p {
+    color: var(--cor-texto-primaria);
+    font-weight: var(--weight-texto-pequeno);
+}
+
+#campos-login-e-cadastro input {
+    width: 100%; 
+    color: #6e7070;
+    box-sizing: border-box;
+    appearance: none;
+    border: 1px solid rgba(95, 145, 94, 0.28);
+    font-weight: var(--weight-texto-pequeno);
+    font-size: var(--tam-texto-pequeno);
+    height: 50px;
+    padding: 0 22px 0 22px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+    border-radius: var(--arredondamento-btn);
+    margin-bottom: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#campos-login-e-cadastro input:focus {
+    outline: none;
+    border-color: rgba(70, 139, 68, 0.206);
+    background: rgba(255, 255, 255, 0.967);
+    box-shadow:
+        0 0 0 4px rgba(72, 135, 75, 0.302),
+        0 0 20px rgba(70, 130, 73, 0.21);
+    transition: border-color 0.2s ease;
+}
+
+.caixa-seletor {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.caixa-seletor li {
+    font-weight: var(--weight-texto-pequeno);
+}
+
+.gatilho-seletor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 0 22px 0 22px;
+    background-color: var(--cor-cards);
+    font-size: var(--tam-texto-pequeno);
+    font-weight: var(--weight-texto-pequeno);
+    color: var(--cor-texto-primaria);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--arredondamento-btn);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.opcoes-seletor {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 5px;
+    background-color: var(--cor-cards);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--arredondamento-btn);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    z-index: 10;
+    overflow: hidden;
+    display: none; 
+}
+
+.opcoes-seletor.ativo {
+    display: block;
+}
+
+.opcao-customizada {
+    padding: 10px 15px;
+    color: var(--cor-texto-primaria);
+    font-size: var(--tam-texto-pequeno);
+    font-weight: var(--weight-texto-pequeno);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.opcao-customizada:hover {
+    background-color: var(--cor-principal);
+    color: white;
+}
+
+#campo-login, #campo-cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-alinhamento {
+    grid-area: 1 / 1;
+}
+
+.desativado {
+    display: none !important;
+}
+
+#btn-cadastro-criar, #btn-login-entrar {
+    background-color: #4b8e4f;
+    color: white !important;
+    font-weight: 600 !important;
+    transition: background-color 0.3s ease !important;
+}
+
+#btn-cadastro-criar:hover, #btn-login-entrar:hover {
+    background-color: #3d7341;
+    transition: background-color 0.2s ease !important;
+    cursor: pointer;
+}
+
+#campos-login-e-cadastro input:invalid:not(:placeholder-shown) {
+    border-color: var(--cor-msg-erro);
+}
+
+footer {
+    background-color: #4b8e4f !important;
+}
+
+@media (max-width: 768px) {
+    #card-acesso {
+        width: min(100%, 500px);
+        padding: 20px 18px;
+    }
+
+    #campos-login-e-cadastro {
+        width: min(100%, 420px);
+    }
+
+    #seletor-login button p {
+        width: 160px;
+    }
+}
+
+@media (max-width: 375px) {
+    .cabecalho-login {
+        padding-top: 30px;
+        padding-inline: 12px;
+    }
+
+    header img {
+        width: 220px;
+    }
+
+    header p,
+    header a {
+        font-size: 14px;
+    }
+
+    .pagina-login {
+        padding: 16px 12px 28px;
+    }
+
+    #card-acesso {
+        padding: 16px 12px;
+        border-radius: 12px;
+    }
+
+    #seletor-login {
+        width: 100%;
+    }
+
+    #seletor-login button p {
+        width: 50%;
+        padding-inline: 0;
+        font-size: 14px;
+    }
+
+    #campos-login-e-cadastro {
+        width: 100%;
+    }
+
+    #campos-login-e-cadastro input {
+        height: 46px;
+        font-size: 14px;
+        padding: 0 14px;
+    }
+
+    #btn-login-entrar,
+    #btn-cadastro-criar {
+        height: 46px;
+        font-size: 14px;
+    }
+}

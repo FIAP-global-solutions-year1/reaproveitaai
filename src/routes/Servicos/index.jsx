@@ -1,19 +1,15 @@
 import { useState } from 'react'
-import '../css/faleconosco.css'
+import './index.css'
 
 const MAX_MENSAGEM = 500
 
-function FaleConosco() {
-  // Campos controlados do formulário
+function ServicosRoute() {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [assunto, setAssunto] = useState('')
   const [mensagem, setMensagem] = useState('')
-
-  // Mensagem de feedback após envio
   const [, setEnviado] = useState(false)
 
-  // Valida nome completo: mínimo 2 palavras, cada uma com ≥ 2 letras
   function nomeValido(valor) {
     const partes = valor.trim().split(' ').filter(p => p !== '')
     return (
@@ -38,7 +34,6 @@ function FaleConosco() {
 
     alert(`Mensagem enviada com sucesso, ${nome}! Nossa equipe retornará o contato em breve.`)
 
-    // Limpa o formulário
     setNome('')
     setEmail('')
     setAssunto('')
@@ -49,13 +44,10 @@ function FaleConosco() {
   return (
     <main className="pagina-contato">
       <section className="card-contato">
-
         <h1>Fale conosco</h1>
-
         <p className="descricao">Entre em contato com nossa equipe.</p>
 
         <form id="formContato" className="formulario-contato" onSubmit={handleSubmit}>
-
           <input
             type="text"
             placeholder="Nome"
@@ -92,7 +84,6 @@ function FaleConosco() {
             onChange={e => setMensagem(e.target.value)}
           />
 
-          {/* Contador de caracteres reativo */}
           <p>
             <span
               id="contador"
@@ -106,12 +97,10 @@ function FaleConosco() {
             Enviar mensagem
             <span className="material-symbols-outlined">send</span>
           </button>
-
         </form>
-
       </section>
     </main>
   )
 }
 
-export default FaleConosco
+export default ServicosRoute
