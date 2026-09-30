@@ -1,6 +1,8 @@
+import './Footer.css'
+
 function Footer() {
   return (
-    <footer>
+    <footer className="rodape-site">
       <p>Todos os direitos reservados. © 2026 ReaproveitaAi</p>
     </footer>
   )

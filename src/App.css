@@ -1,4 +1,20 @@
-/* Limites de largura dos containers da SPA. */
+:root {
+  --verde-900: #1e5d2a;
+  --verde-800: #2f7d32;
+  --verde-700: #3f8f43;
+  --verde-100: #edf7ee;
+  --verde-50: #f5fbf5;
+  --amarelo-100: #fff7bf;
+  --cinza-900: #1d2a1e;
+  --cinza-700: #465347;
+  --cinza-500: #6d7b70;
+  --cinza-200: #dfe7df;
+  --branco: #ffffff;
+  --sombra: 0 12px 28px rgba(16, 47, 20, 0.08);
+  --borda: 1px solid rgba(22, 71, 28, 0.1);
+  --raio: 18px;
+}
+
 html,
 body,
 #root,
@@ -8,3 +24,47 @@ body,
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: linear-gradient(180deg, #f8faf7 0%, #f4f7f4 100%);
+  color: var(--cinza-900);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+}
+
+main,
+section,
+article,
+aside,
+footer {
+  box-sizing: border-box;
+} 

@@ -1,3 +1,5 @@
+import './Notificacoes.css'
+
 const ICONES = {
   reserva: 'fa-solid fa-circle-check',
   cancelada: 'fa-solid fa-circle-xmark',

@@ -1,8 +1,9 @@
-import '../css/carrinho.css'
+import { Link } from 'react-router-dom'
+import './index.css'
 
 const ENTREGA = 5.00
 
-function Carrinho({ itens, onAtualizarQuantidade, onRemover, onNavegar }) {
+function CarrinhoRoute({ itens, onAtualizarQuantidade, onRemover }) {
   const subtotal = itens.reduce((acc, item) => acc + item.preco * item.quantidade, 0)
   const entrega = itens.length > 0 ? ENTREGA : 0
   const total = subtotal + entrega
@@ -11,7 +12,6 @@ function Carrinho({ itens, onAtualizarQuantidade, onRemover, onNavegar }) {
 
   return (
     <main className="container pagina-carrinho">
-
       <div className="page-title">
         <div>
           <p className="breadcrumb">Início / Carrinho</p>
@@ -23,10 +23,7 @@ function Carrinho({ itens, onAtualizarQuantidade, onRemover, onNavegar }) {
       </div>
 
       <div className="cart-layout">
-
-        {/* Lista de produtos */}
         <section className="cart-products">
-
           <div className="cart-header">
             <span>Produto</span>
             <span>Quantidade</span>
@@ -38,7 +35,6 @@ function Carrinho({ itens, onAtualizarQuantidade, onRemover, onNavegar }) {
           ) : (
             itens.map(item => (
               <article className="product" key={item.id}>
-
                 <div className="product-info">
                   <div className="product-image">
                     <img src={item.imagem} alt={item.alt} />
@@ -61,26 +57,21 @@ function Carrinho({ itens, onAtualizarQuantidade, onRemover, onNavegar }) {
                 </div>
 
                 <strong className="product-total">{fmt(item.preco * item.quantidade)}</strong>
-
               </article>
             ))
           )}
 
-          <button
-            type="button"
+          <Link
+            to="/produtos"
             className="continue-shopping"
-            onClick={() => onNavegar('produtos')}
-            style={{ background: 'none', border: 'none', padding: 0 }}
+            style={{ background: 'none', border: 'none', padding: 0, textDecoration: 'none', color: '#1f2a1f' }}
           >
             <i className="fa-solid fa-arrow-left"></i>
             Continuar comprando
-          </button>
-
+          </Link>
         </section>
 
-        {/* Resumo do pedido */}
         <aside className="order-summary">
-
           <h2>Resumo do pedido</h2>
 
           <div className="summary-line">
@@ -120,13 +111,10 @@ function Carrinho({ itens, onAtualizarQuantidade, onRemover, onNavegar }) {
               <p>Seus dados estão protegidos.</p>
             </div>
           </div>
-
         </aside>
-
       </div>
-
     </main>
   )
 }
 
-export default Carrinho
+export default CarrinhoRoute

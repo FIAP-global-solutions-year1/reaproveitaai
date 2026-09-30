@@ -1,0 +1,14 @@
+.rodape-site {
+  background-color: #4b8e4f;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.rodape-site p {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}

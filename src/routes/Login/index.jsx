@@ -1,18 +1,15 @@
 import { useState } from 'react'
-import '../css/login.css'
+import { useNavigate } from 'react-router-dom'
+import './index.css'
+import Footer from '../../components/layout/footer/Footer'
 
-// Tipos de usuário disponíveis no cadastro
 const TIPOS_USUARIO = ['Consumidor', 'Lojista', 'ONG']
 
-function Login({ onNavegar }) {
-  // Alterna entre 'entrar' e 'cadastro'
+function LoginRoute() {
+  const navigate = useNavigate()
   const [abaAtiva, setAbaAtiva] = useState('entrar')
-
-  // Campos do formulário de login
   const [loginEmail, setLoginEmail] = useState('')
   const [loginSenha, setLoginSenha] = useState('')
-
-  // Campos do formulário de cadastro
   const [tipoUsuario, setTipoUsuario] = useState('Consumidor')
   const [seletorAberto, setSeletorAberto] = useState(false)
   const [cadNome, setCadNome] = useState('')
@@ -21,24 +18,22 @@ function Login({ onNavegar }) {
   const [cadCnpj, setCadCnpj] = useState('')
   const [cadSenha, setCadSenha] = useState('')
 
-  // CPF visível apenas para Consumidor; CNPJ para Lojista e ONG
   const exibeCpf = tipoUsuario === 'Consumidor'
   const exibeCnpj = tipoUsuario === 'Lojista' || tipoUsuario === 'ONG'
 
   function handleLogin(e) {
     e.preventDefault()
-    onNavegar('produtos')
+    navigate('/produtos')
   }
 
   function handleCadastro(e) {
     e.preventDefault()
-    onNavegar('produtos')
+    navigate('/produtos')
   }
 
   function selecionarTipo(tipo) {
     setTipoUsuario(tipo)
     setSeletorAberto(false)
-    // Limpa os campos de documento ao trocar tipo
     setCadCpf('')
     setCadCnpj('')
   }
@@ -57,8 +52,6 @@ function Login({ onNavegar }) {
 
       <main className="pagina-login">
         <div id="card-acesso">
-
-          {/* Seletor Entrar / Criar conta */}
           <section id="seletor-login">
             <button
               type="button"
@@ -77,8 +70,6 @@ function Login({ onNavegar }) {
           </section>
 
           <div id="campos-login-e-cadastro">
-
-            {/* Formulário de Login */}
             {abaAtiva === 'entrar' && (
               <form id="campo-login" className="card-alinhamento" onSubmit={handleLogin}>
                 <p>E-mail</p>
@@ -102,13 +93,10 @@ function Login({ onNavegar }) {
               </form>
             )}
 
-            {/* Formulário de Cadastro */}
             {abaAtiva === 'cadastro' && (
               <form id="campo-cadastro" className="card-alinhamento" onSubmit={handleCadastro}>
-
                 <p>Tipo de cadastro</p>
 
-                {/* Seletor customizado de tipo de usuário */}
                 <div className="caixa-seletor">
                   <button
                     type="button"
@@ -155,7 +143,6 @@ function Login({ onNavegar }) {
                   onChange={e => setCadEmail(e.target.value)}
                 />
 
-                {/* Exibe CPF ou CNPJ conforme tipo selecionado */}
                 {exibeCpf && (
                   <section id="section-cadastro-cpf" className="active">
                     <p>CPF</p>
@@ -202,15 +189,16 @@ function Login({ onNavegar }) {
                 />
                 <br />
                 <input type="submit" value="Criar conta" id="btn-cadastro-criar" />
-
               </form>
             )}
-
           </div>
         </div>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
 
-export default Login
+export default LoginRoute
