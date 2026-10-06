@@ -20,8 +20,7 @@ body,
 #root,
 #app-root {
   width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
+  max-width: 100%;
   box-sizing: border-box;
 }
 
@@ -39,32 +38,3 @@ body {
 * {
   box-sizing: border-box;
 }
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-button {
-  cursor: pointer;
-}
-
-main,
-section,
-article,
-aside,
-footer {
-  box-sizing: border-box;
-} 
