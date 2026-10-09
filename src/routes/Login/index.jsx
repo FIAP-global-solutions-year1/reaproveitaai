@@ -44,7 +44,7 @@ function LoginRoute() {
         <section id="logo-header">
           <img src="img/logo-reaproveitaai.png" alt="logo-reaproveita-ai" />
           <p>Vídeo de apresentação do nosso MVP:</p>
-          <a href="https://youtu.be/A0_BuhK70x4" target="_blank" rel="noreferrer">
+          <a href="https://youtu.be/Dd3yAeNLXv0" target="_blank" rel="noreferrer">
             Vídeo Pitch (Clique aqui)
           </a>
         </section>
