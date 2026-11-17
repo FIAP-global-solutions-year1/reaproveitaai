@@ -6,9 +6,26 @@ import LoginRoute from './routes/Login'
 import ProdutosRoute from './routes/Produtos'
 import CarrinhoRoute from './routes/Carrinho'
 import ServicosRoute from './routes/Servicos'
+import ReservasRoute from './routes/Reservas'
 
 const CHAVE_NOTIFICACOES = 'reaproveitaai:notificacoes'
 const LIMITE_NOTIFICACOES = 20
+const CHAVE_RESERVAS = 'reaproveitaai:reservas'
+
+function carregarReservas() {
+  try {
+    const salvas = JSON.parse(localStorage.getItem(CHAVE_RESERVAS))
+    if (Array.isArray(salvas)) return salvas
+  } catch {
+    // Armazenamento bloqueado ou conteúdo inválido: começa sem reservas.
+  }
+
+  return []
+}
+
+function gerarCodigoVoucher() {
+  return `ECO-${Math.random().toString(36).slice(2, 8).toUpperCase()}`
+}
 
 function carregarNotificacoes() {
   try {
@@ -40,6 +57,7 @@ function AppLayout({ children, qtdCarrinho, notificacoes, onMarcarLida, onMarcar
 function App() {
   const [itensCarrinho, setItensCarrinho] = useState([])
   const [notificacoes, setNotificacoes] = useState(carregarNotificacoes)
+  const [reservas, setReservas] = useState(carregarReservas)
   const qtdCarrinho = itensCarrinho.reduce((total, item) => total + item.quantidade, 0)
 
   useEffect(() => {
@@ -49,6 +67,14 @@ function App() {
       // Sem espaço ou acesso negado: as notificações seguem apenas em memória.
     }
   }, [notificacoes])
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(CHAVE_RESERVAS, JSON.stringify(reservas))
+    } catch {
+      // Sem espaço ou acesso negado: as reservas seguem apenas em memória.
+    }
+  }, [reservas])
 
   function notificar({ tipo, titulo, descricao }) {
     setNotificacoes(prev => [
@@ -112,6 +138,37 @@ function App() {
     }
   }
 
+  function finalizarCompra() {
+    if (itensCarrinho.length === 0) return false
+
+    const total = itensCarrinho.reduce((acc, item) => acc + item.preco * item.quantidade, 0)
+    const reserva = {
+      id: crypto.randomUUID(),
+      codigo: gerarCodigoVoucher(),
+      data: Date.now(),
+      itens: itensCarrinho.map(item => ({
+        id: item.id,
+        nome: item.nome,
+        loja: item.descricao,
+        imagem: item.imagem,
+        alt: item.alt,
+        preco: item.preco,
+        quantidade: item.quantidade,
+      })),
+      total,
+    }
+
+    setReservas(prev => [reserva, ...prev])
+    setItensCarrinho([])
+    notificar({
+      tipo: 'reserva',
+      titulo: 'Reserva confirmada',
+      descricao: `Voucher ${reserva.codigo} gerado. Apresente o código na retirada.`,
+    })
+
+    return true
+  }
+
   return (
     <div id="app-root" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Routes>
@@ -150,7 +207,23 @@ function App() {
                 itens={itensCarrinho}
                 onAtualizarQuantidade={atualizarQuantidade}
                 onRemover={removerDoCarrinho}
+                onFinalizar={finalizarCompra}
               />
+            </AppLayout>
+          }
+        />
+
+        <Route
+          path="/reservas"
+          element={
+            <AppLayout
+              qtdCarrinho={qtdCarrinho}
+              notificacoes={notificacoes}
+              onMarcarLida={marcarNotificacaoLida}
+              onMarcarTodasLidas={marcarTodasLidas}
+              onLimparNotificacoes={limparNotificacoes}
+            >
+              <ReservasRoute reservas={reservas} />
             </AppLayout>
           }
         />

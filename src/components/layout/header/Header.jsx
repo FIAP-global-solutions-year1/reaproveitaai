@@ -65,6 +65,24 @@ function Header({ qtdCarrinho, notificacoes, onMarcarLida, onMarcarTodasLidas, o
           Produtos
         </NavLink>
         <NavLink
+          to="/reservas"
+          style={({ isActive }) => ({
+            background: isActive ? 'rgb(218, 237, 221)' : 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            textDecoration: 'none',
+            color: 'rgb(14, 136, 7)',
+            fontWeight: 500,
+            fontSize: 16,
+            padding: '12px 22px',
+            borderRadius: 14,
+            display: 'flex',
+            transition: '0.3s',
+          })}
+        >
+          Minhas reservas
+        </NavLink>
+        <NavLink
           to="/faleconosco"
           id="btn-faleconosco"
           style={({ isActive }) => ({

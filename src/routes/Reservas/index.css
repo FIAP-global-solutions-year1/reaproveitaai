@@ -1,0 +1,241 @@
+.pagina-reservas {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 55px 25px 80px;
+    text-align: left;
+}
+
+.reservas-topo {
+    margin-bottom: 28px;
+}
+
+.reservas-breadcrumb {
+    font-size: 13px;
+    color: #8a8a8a;
+    margin: 0 0 10px;
+}
+
+.reservas-topo h1 {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.reservas-resumo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.resumo-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--branco);
+    border: var(--borda);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: var(--sombra);
+    min-width: 0;
+}
+
+.resumo-card i {
+    font-size: 20px;
+    color: var(--verde-800);
+    background: var(--verde-100);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.resumo-card div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.resumo-card strong {
+    font-size: 24px;
+    color: var(--cinza-900);
+    font-variant-numeric: tabular-nums;
+}
+
+.resumo-card span {
+    font-size: 13px;
+    color: var(--cinza-500);
+}
+
+.resumo-card.destaque {
+    background: var(--verde-800);
+    border-color: var(--verde-800);
+}
+
+.resumo-card.destaque i {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--branco);
+}
+
+.resumo-card.destaque strong,
+.resumo-card.destaque span {
+    color: var(--branco);
+}
+
+.reservas-vazio {
+    background: var(--branco);
+    border: var(--borda);
+    border-radius: var(--raio);
+    padding: 40px 24px;
+    text-align: center;
+    color: var(--cinza-500);
+}
+
+.reservas-vazio p {
+    margin: 0 0 14px;
+}
+
+.reservas-link {
+    display: inline-block;
+    background: var(--verde-800);
+    color: var(--branco);
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.reservas-link:hover {
+    background: var(--verde-900);
+}
+
+.reservas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.reserva-card {
+    background: var(--branco);
+    border: var(--borda);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    overflow: hidden;
+}
+
+.reserva-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px 20px;
+    background: var(--verde-50);
+    border-bottom: var(--borda);
+}
+
+.reserva-rotulo {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cinza-500);
+    margin-bottom: 2px;
+}
+
+.reserva-codigo {
+    font-family: "Courier New", monospace;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    color: var(--verde-900);
+}
+
+.reserva-data {
+    font-size: 13px;
+    color: var(--cinza-500);
+}
+
+.reserva-itens {
+    list-style: none;
+    margin: 0;
+    padding: 6px 20px;
+}
+
+.reserva-itens li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--cinza-200);
+}
+
+.reserva-itens li:last-child {
+    border-bottom: none;
+}
+
+.reserva-itens img {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.reserva-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.reserva-item-info span {
+    font-size: 13px;
+    color: var(--cinza-500);
+}
+
+.reserva-item-qtd {
+    font-size: 14px;
+    color: var(--cinza-700);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.reserva-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    border-top: var(--borda);
+    font-size: 15px;
+}
+
+.reserva-rodape strong {
+    font-size: 18px;
+    color: var(--verde-900);
+}
+
+@media (max-width: 520px) {
+    .pagina-reservas {
+        padding: 36px 16px 60px;
+    }
+
+    .reservas-topo h1 {
+        font-size: 28px;
+    }
+
+    .reserva-itens li {
+        flex-wrap: wrap;
+    }
+
+    .reserva-item-qtd {
+        width: 100%;
+        padding-left: 66px;
+    }
+}
