@@ -1,12 +1,42 @@
 import { Link } from 'react-router-dom'
 import './index.css'
+import { useState } from 'react'
+import Endereco from '../../components/ui/endereco/Endereco'
+
+// Cupons aceitos e quanto cada um desconta do subtotal
+const CUPONS = {
+  REAPROVEITA10: 0.10,
+  SALVA20: 0.20,
+}
 
 const ENTREGA = 5.00
 
 function CarrinhoRoute({ itens, onAtualizarQuantidade, onRemover }) {
   const subtotal = itens.reduce((acc, item) => acc + item.preco * item.quantidade, 0)
   const entrega = itens.length > 0 ? ENTREGA : 0
-  const total = subtotal + entrega
+  const [codigoCupom, setCodigoCupom] = useState('')
+  const [cupomAplicado, setCupomAplicado] = useState(null)
+  const [erroCupom, setErroCupom] = useState('')
+  const desconto = cupomAplicado ? subtotal * CUPONS[cupomAplicado] : 0
+  const total = subtotal - desconto + entrega
+
+  function aplicarCupom() {
+    const codigo = codigoCupom.trim().toUpperCase()
+
+    if (!CUPONS[codigo]) {
+      setCupomAplicado(null)
+      setErroCupom('Cupom inválido.')
+      return
+    }
+
+    setCupomAplicado(codigo)
+    setErroCupom('')
+  }
+
+  function removerCupom() {
+    setCupomAplicado(null)
+    setCodigoCupom('')
+  }
 
   const fmt = (val) => val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 
@@ -84,13 +114,35 @@ function CarrinhoRoute({ itens, onAtualizarQuantidade, onRemover }) {
             <strong>{fmt(entrega)}</strong>
           </div>
 
-          <div className="coupon">
+          {cupomAplicado && (
+            <div className="summary-line desconto">
+              <span>Desconto ({cupomAplicado})</span>
+              <strong>- {fmt(desconto)}</strong>
+            </div>
+          )}
+
+          <Endereco />
+
+          <form className="coupon" onSubmit={e => { e.preventDefault(); aplicarCupom() }}>
             <label htmlFor="coupon">Cupom de desconto</label>
             <div className="coupon-input">
-              <input type="text" id="coupon" placeholder="Digite seu cupom" />
-              <button type="button">Aplicar</button>
+              <input
+                type="text"
+                id="coupon"
+                placeholder="Digite seu cupom"
+                value={codigoCupom}
+                onChange={e => setCodigoCupom(e.target.value)}
+              />
+              <button type="submit">Aplicar</button>
             </div>
-          </div>
+            {erroCupom && <p className="coupon-msg erro">{erroCupom}</p>}
+            {cupomAplicado && (
+              <p className="coupon-msg sucesso">
+                Cupom {cupomAplicado} aplicado: {CUPONS[cupomAplicado] * 100}% de desconto.{' '}
+                <button type="button" className="coupon-remover" onClick={removerCupom}>Remover</button>
+              </p>
+            )}
+          </form>
 
           <div className="divider"></div>
 

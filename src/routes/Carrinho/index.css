@@ -264,6 +264,32 @@ a {
     font-size: 12px;
 }
 
+.summary-line.desconto strong {
+    color: #2f7d32;
+}
+
+.coupon-msg {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.coupon-msg.erro {
+    color: #d9534f;
+}
+
+.coupon-msg.sucesso {
+    color: #2f7d32;
+}
+
+.coupon-remover {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #999;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
 .divider {
     height: 1px;
     background: #eeeeee;
