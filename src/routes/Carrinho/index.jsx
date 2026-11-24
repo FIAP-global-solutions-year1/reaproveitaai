@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './index.css'
 import { useState } from 'react'
 import Endereco from '../../components/ui/endereco/Endereco'
@@ -11,7 +11,8 @@ const CUPONS = {
 
 const ENTREGA = 5.00
 
-function CarrinhoRoute({ itens, onAtualizarQuantidade, onRemover }) {
+function CarrinhoRoute({ itens, onAtualizarQuantidade, onRemover, onFinalizar }) {
+  const navigate = useNavigate()
   const subtotal = itens.reduce((acc, item) => acc + item.preco * item.quantidade, 0)
   const entrega = itens.length > 0 ? ENTREGA : 0
   const [codigoCupom, setCodigoCupom] = useState('')
@@ -151,7 +152,12 @@ function CarrinhoRoute({ itens, onAtualizarQuantidade, onRemover }) {
             <strong>{fmt(total)}</strong>
           </div>
 
-          <button className="checkout" type="button">
+          <button
+            className="checkout"
+            type="button"
+            disabled={itens.length === 0}
+            onClick={() => { if (onFinalizar()) navigate('/reservas') }}
+          >
             Finalizar compra
             <i className="fa-solid fa-arrow-right"></i>
           </button>

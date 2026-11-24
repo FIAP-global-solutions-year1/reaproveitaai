@@ -334,6 +334,12 @@ a {
     transform: translateY(-2px);
 }
 
+.checkout:disabled {
+    background: #a9b8a9;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .secure {
     display: flex;
     gap: 12px;
